@@ -901,260 +901,418 @@ public class NewJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botao7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao7ActionPerformed
-        // TODO add your handling code here:
+        int n = 7, linha, coluna = 0;
+        linha = n / 8;
+        coluna = n % 8;
+        System.out.println("Linha " + linha + " Coluna " + coluna);
+
+
     }//GEN-LAST:event_botao7ActionPerformed
 
     private void botao15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao15ActionPerformed
-        // TODO add your handling code here:
+        int n = 15, linha, coluna = 0;
+        linha = n / 8;
+        coluna = n % 8;
+        System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao15ActionPerformed
 
     private void botao23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao23ActionPerformed
-        // TODO add your handling code here:
+        int n = 23, linha, coluna = 0;
+        linha = n / 8;
+        coluna = n % 8;
+        System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao23ActionPerformed
 
     private void botao31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao31ActionPerformed
-        // TODO add your handling code here:
+        int n = 31, linha, coluna = 0;
+        linha = n / 8;
+        coluna = n % 8;
+        System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao31ActionPerformed
 
     private void botao6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao6ActionPerformed
-        // TODO add your handling code here:
+        int n = 6, linha, coluna = 0;
+        linha = n / 8;
+        coluna = n % 8;
+        System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao6ActionPerformed
 
     private void botao30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao30ActionPerformed
-        // TODO add your handling code here:
+        int n = 30, linha, coluna = 0;
+        linha = n / 8;
+        coluna = n % 8;
+        System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao30ActionPerformed
 
     private void botao22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao22ActionPerformed
-        // TODO add your handling code here:
+        int n = 22, linha, coluna = 0;
+        linha = n / 8;
+        coluna = n % 8;
+        System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao22ActionPerformed
 
     private void botao14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao14ActionPerformed
-        // TODO add your handling code here:
+        int n = 14, linha, coluna = 0;
+        linha = n / 8;
+        coluna = n % 8;
+        System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao14ActionPerformed
 
     private void botao4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao4ActionPerformed
-        // TODO add your handling code here:
+        int n = 4, linha, coluna = 0;
+        linha = n / 8;
+        coluna = n % 8;
+        System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao4ActionPerformed
 
     private void botao28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao28ActionPerformed
-        // TODO add your handling code here:
+        int n = 28, linha, coluna = 0;
+        linha = n / 8;
+        coluna = n % 8;
+        System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao28ActionPerformed
 
     private void botao20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao20ActionPerformed
-        // TODO add your handling code here:
+        int n = 20, linha, coluna = 0;
+        linha = n / 8;
+        coluna = n % 8;
+        System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao20ActionPerformed
 
     private void botao12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao12ActionPerformed
-        // TODO add your handling code here:
+        int n = 12, linha, coluna = 0;
+        linha = n / 8;
+        coluna = n % 8;
+        System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao12ActionPerformed
 
     private void botao5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao5ActionPerformed
-        // TODO add your handling code here:
+        int n = 5, linha, coluna = 0;
+        linha = n / 8;
+        coluna = n % 8;
+        System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao5ActionPerformed
 
     private void botao13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao13ActionPerformed
-        // TODO add your handling code here:
+        int n = 13, linha, coluna = 0;
+        linha = n / 8;
+        coluna = n % 8;
+        System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao13ActionPerformed
 
     private void botao21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao21ActionPerformed
-        // TODO add your handling code here:
+        int n = 21, linha, coluna = 0;
+        linha = n / 8;
+        coluna = n % 8;
+        System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao21ActionPerformed
 
     private void botao29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao29ActionPerformed
-        // TODO add your handling code here:
+        int n = 29, linha, coluna = 0;
+        linha = n / 8;
+        coluna = n % 8;
+        System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao29ActionPerformed
 
     private void botao0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao0ActionPerformed
-        
+        int n = 0, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);
     }//GEN-LAST:event_botao0ActionPerformed
 
     private void botao8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao8ActionPerformed
-        // TODO add your handling code here:
+        int n = 8, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);
     }//GEN-LAST:event_botao8ActionPerformed
 
     private void botao16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao16ActionPerformed
-        // TODO add your handling code here:
+        int n = 16, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);
     }//GEN-LAST:event_botao16ActionPerformed
 
     private void botao24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao24ActionPerformed
-        // TODO add your handling code here:
+        int n = 24, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);
     }//GEN-LAST:event_botao24ActionPerformed
 
     private void botao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao1ActionPerformed
-        // TODO add your handling code here:
+        int n = 1, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);
     }//GEN-LAST:event_botao1ActionPerformed
 
     private void botao9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao9ActionPerformed
-        // TODO add your handling code here:
+        int n = 9, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);
     }//GEN-LAST:event_botao9ActionPerformed
 
     private void botao17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao17ActionPerformed
-        // TODO add your handling code here:
+       int n = 17, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);
     }//GEN-LAST:event_botao17ActionPerformed
 
     private void botao25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao25ActionPerformed
-        // TODO add your handling code here:
+        int n = 25, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);
     }//GEN-LAST:event_botao25ActionPerformed
 
     private void botao26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao26ActionPerformed
-        // TODO add your handling code here:
+        int n = 26, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);
     }//GEN-LAST:event_botao26ActionPerformed
 
     private void botao18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao18ActionPerformed
-        // TODO add your handling code here:
+        int n = 15, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);
     }//GEN-LAST:event_botao18ActionPerformed
 
     private void botao10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao10ActionPerformed
-        // TODO add your handling code here:
+        int n = 15, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);
     }//GEN-LAST:event_botao10ActionPerformed
 
     private void botao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao2ActionPerformed
-        // TODO add your handling code here:
+        int n = 15, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);
     }//GEN-LAST:event_botao2ActionPerformed
 
     private void botao3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao3ActionPerformed
+int n = 3, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao3ActionPerformed
 
     private void botao11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao11ActionPerformed
+int n = 11, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao11ActionPerformed
 
     private void botao19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao19ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao19ActionPerformed
+int n = 19, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao19ActionPerformed
 
     private void botao27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao27ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao27ActionPerformed
+int n = 27, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao27ActionPerformed
 
     private void botao63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao63ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao63ActionPerformed
+int n = 63, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao63ActionPerformed
 
     private void botao55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao55ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao55ActionPerformed
+int n = 55, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao55ActionPerformed
 
     private void botao47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao47ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao47ActionPerformed
+int n = 47, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao47ActionPerformed
 
     private void botao39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao39ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao39ActionPerformed
+int n = 39, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao39ActionPerformed
 
     private void botao38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao38ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao38ActionPerformed
+int n = 38, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao38ActionPerformed
 
     private void botao46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao46ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao46ActionPerformed
+int n = 46, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao46ActionPerformed
 
     private void botao54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao54ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao54ActionPerformed
+int n = 54, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao54ActionPerformed
 
     private void botao61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao61ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao61ActionPerformed
+int n = 61, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao61ActionPerformed
 
     private void botao62ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao62ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao62ActionPerformed
+int n = 62, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao62ActionPerformed
 
     private void botao53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao53ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao53ActionPerformed
+int n = 53, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao53ActionPerformed
 
     private void botao45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao45ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao45ActionPerformed
+int n = 45, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao45ActionPerformed
 
     private void botao37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao37ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao37ActionPerformed
+int n = 37, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao37ActionPerformed
 
     private void botao36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao36ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao36ActionPerformed
+int n = 36, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao36ActionPerformed
 
     private void botao44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao44ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao44ActionPerformed
+int n = 44, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao44ActionPerformed
 
     private void botao52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao52ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao52ActionPerformed
+int n = 52, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao52ActionPerformed
 
     private void botao60ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao60ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao60ActionPerformed
+int n = 60, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao60ActionPerformed
 
     private void botao59ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao59ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao59ActionPerformed
+int n = 59, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao59ActionPerformed
 
     private void botao51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao51ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao51ActionPerformed
+int n = 51, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao51ActionPerformed
 
     private void botao43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao43ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao43ActionPerformed
+int n = 43, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao43ActionPerformed
 
     private void botao35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao35ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao35ActionPerformed
+int n = 35, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao35ActionPerformed
 
     private void botao34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao34ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao34ActionPerformed
+int n = 34, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao34ActionPerformed
 
     private void botao42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao42ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao42ActionPerformed
+int n = 42, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao42ActionPerformed
 
     private void botao50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao50ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao50ActionPerformed
+int n = 50, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao50ActionPerformed
 
     private void botao58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao58ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao58ActionPerformed
+int n = 58, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao58ActionPerformed
 
     private void botao57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao57ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao57ActionPerformed
+int n = 57, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao57ActionPerformed
 
     private void botao49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao49ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao49ActionPerformed
+int n = 49, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao49ActionPerformed
 
     private void botao41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao41ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao41ActionPerformed
+int n = 41, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao41ActionPerformed
 
     private void botao33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao33ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao33ActionPerformed
+int n = 33, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao33ActionPerformed
 
     private void botao32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao32ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao32ActionPerformed
+int n = 32, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao32ActionPerformed
 
     private void botao40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao40ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao40ActionPerformed
+int n = 40, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao40ActionPerformed
 
     private void botao48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao48ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao48ActionPerformed
+int n = 48, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao48ActionPerformed
 
     private void botao56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao56ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botao56ActionPerformed
+int n = 56, linha, coluna=0;
+        linha = n/8;
+        coluna = n%8;
+        System.out.println("Linha "+linha+" Coluna "+coluna);    }//GEN-LAST:event_botao56ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1187,15 +1345,12 @@ public class NewJFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new NewJFrame().setVisible(true);
-                
+
                 //jJogador1.setBackground(new Color(1,1,1));
-                
                 /*
                   new Color(1,1,1) 
                    btnAux.setForeground(Color.WHITE); 
-                */
-                
-                
+                 */
             }
         });
     }
