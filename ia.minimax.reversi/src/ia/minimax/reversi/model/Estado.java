@@ -19,6 +19,30 @@ public class Estado {
     public void setTabuleiro(int[][] tabuleiro) {
         this.tabuleiro = tabuleiro;
     }
+
+    public int getMinimax() {
+        return minimax;
+    }
+
+    public void setMinimax(int minimax) {
+        this.minimax = minimax;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    public ArrayList<Estado> getFilhos() {
+        return filhos;
+    }
+
+    public void setFilhos(ArrayList<Estado> filhos) {
+        this.filhos = filhos;
+    }
     
     
     
