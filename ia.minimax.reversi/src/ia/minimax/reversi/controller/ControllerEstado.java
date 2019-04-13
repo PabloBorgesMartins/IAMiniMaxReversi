@@ -37,8 +37,14 @@ public class ControllerEstado {
                 System.out.print(matrizEstado[i][j] + " ");
             }
             System.out.println(" ");
-        }
+        }    
     }
+    
+    public void comecarJogo(){
+        
+    }
+    
+    
 
     // 1 - preto; 2 - branco; 0 - vazio
     public void gerarFilhos(Estado raiz) {
@@ -68,73 +74,73 @@ public class ControllerEstado {
     /*
     // Funcao que busca lugares onde possa ser feito uma jogada
     */
-    private ArrayList<Posicao> geraPossibilidades(char player, char opponent, Estado e){ 
+    private ArrayList<Posicao> geraPossibilidades(int jogadorAtual, int oponente, Estado e){ 
         ArrayList<Posicao> posicoes = new ArrayList<>();
         
         for(int i=0;i<8;++i){
             for(int j=0;j<8;++j){
-                if(e.getTabuleiro()[i][j] == opponent){
+                if(e.getTabuleiro()[i][j] == oponente){
                     int I = i, J = j;  
                     if(i-1>=0 && j-1>=0 && e.getTabuleiro()[i-1][j-1] == 0){ 
                         i = i+1; j = j+1;
-                        while(i<7 && j<7 && e.getTabuleiro()[i][j] == opponent){i++;j++;}
-                        if(i<=7 && j<=7 && e.getTabuleiro()[i][j] == player){
+                        while(i<7 && j<7 && e.getTabuleiro()[i][j] == oponente){i++;j++;}
+                        if(i<=7 && j<=7 && e.getTabuleiro()[i][j] == jogadorAtual){
                             posicoes.add(new Posicao(I-1, J-1));
                         }
                     } 
                     i=I;j=J;
                     if(i-1>=0 && e.getTabuleiro()[i-1][j] == 0){
                         i = i+1;
-                        while(i<7 && e.getTabuleiro()[i][j] == opponent) i++;
-                        if(i<=7 && e.getTabuleiro()[i][j] == player){     
+                        while(i<7 && e.getTabuleiro()[i][j] == oponente) i++;
+                        if(i<=7 && e.getTabuleiro()[i][j] == jogadorAtual){     
                             posicoes.add(new Posicao(I-1, J));
                         }
                     } 
                     i=I;
                     if(i-1>=0 && j+1<=7 && e.getTabuleiro()[i-1][j+1] == 0){
                         i = i+1; j = j-1;
-                        while(i<7 && j>0 && e.getTabuleiro()[i][j] == opponent){i++;j--;}
-                        if(i<=7 && j>=0 && e.getTabuleiro()[i][j] == player){
+                        while(i<7 && j>0 && e.getTabuleiro()[i][j] == oponente){i++;j--;}
+                        if(i<=7 && j>=0 && e.getTabuleiro()[i][j] == jogadorAtual){
                             posicoes.add(new Posicao(I-1, J+1));
                         }
                     }  
                     i=I;j=J;
                     if(j-1>=0 && e.getTabuleiro()[i][j-1] == 0){
                         j = j+1;
-                        while(j<7 && e.getTabuleiro()[i][j] == opponent)j++;
-                        if(j<=7 && e.getTabuleiro()[i][j] == player){
+                        while(j<7 && e.getTabuleiro()[i][j] == oponente)j++;
+                        if(j<=7 && e.getTabuleiro()[i][j] == jogadorAtual){
                             posicoes.add(new Posicao(I, J-1));
                         }
                     }
                     j=J;
                     if(j+1<=7 && e.getTabuleiro()[i][j+1] == 0){
                         j=j-1;
-                        while(j>0 && e.getTabuleiro()[i][j] == opponent)j--;
-                        if(j>=0 && e.getTabuleiro()[i][j] == player){
+                        while(j>0 && e.getTabuleiro()[i][j] == oponente)j--;
+                        if(j>=0 && e.getTabuleiro()[i][j] == jogadorAtual){
                             posicoes.add(new Posicao(I, J+1));
                         }
                     }
                     j=J;
                     if(i+1<=7 && j-1>=0 && e.getTabuleiro()[i+1][j-1] == 0){
                         i=i-1;j=j+1;
-                        while(i>0 && j<7 && e.getTabuleiro()[i][j] == opponent){i--;j++;}
-                        if(i>=0 && j<=7 && e.getTabuleiro()[i][j] == player){
+                        while(i>0 && j<7 && e.getTabuleiro()[i][j] == oponente){i--;j++;}
+                        if(i>=0 && j<=7 && e.getTabuleiro()[i][j] == jogadorAtual){
                             posicoes.add(new Posicao(I+1, J-1));
                         }
                     }
                     i=I;j=J;
                     if(i+1 <= 7 && e.getTabuleiro()[i+1][j] == 0){
                         i=i-1;
-                        while(i>0 && e.getTabuleiro()[i][j] == opponent) i--;
-                        if(i>=0 && e.getTabuleiro()[i][j] == player){
+                        while(i>0 && e.getTabuleiro()[i][j] == oponente) i--;
+                        if(i>=0 && e.getTabuleiro()[i][j] == jogadorAtual){
                             posicoes.add(new Posicao(I+1, J));
                         }
                     }
                     i=I;
                     if(i+1 <= 7 && j+1 <=7 && e.getTabuleiro()[i+1][j+1] == 0){
                         i=i-1;j=j-1;
-                        while(i>0 && j>0 && e.getTabuleiro()[i][j] == opponent){i--;j--;}
-                        if(i>=0 && j>=0 && e.getTabuleiro()[i][j] == player){
+                        while(i>0 && j>0 && e.getTabuleiro()[i][j] == oponente){i--;j--;}
+                        if(i>=0 && j>=0 && e.getTabuleiro()[i][j] == jogadorAtual){
                             posicoes.add(new Posicao(I+1, J+1));
                         }
                     }
@@ -143,9 +149,7 @@ public class ControllerEstado {
                 } 
             } 
         return posicoes;
-    } 
-    
-    
+    }
     
     
     
