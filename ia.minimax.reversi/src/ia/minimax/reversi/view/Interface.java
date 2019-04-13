@@ -1,8 +1,13 @@
 package ia.minimax.reversi.view;
 
 import ia.minimax.reversi.controller.ControllerEstado;
+import java.awt.Color;
 
 public class Interface extends javax.swing.JFrame {
+    
+    private static final Color JOGADOR = Color.BLACK;
+    private static final Color IA = Color.WHITE;
+    private static final Color COR_CASA_VAZIA = Color.GREEN;
 
     public Interface() {
         initComponents();
@@ -888,8 +893,6 @@ public class Interface extends javax.swing.JFrame {
         linha = n / 8;
         coluna = n % 8;
         System.out.println("Linha " + linha + " Coluna " + coluna);
-
-
     }//GEN-LAST:event_botao7ActionPerformed
 
     private void botao15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao15ActionPerformed
@@ -1061,21 +1064,21 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_botao26ActionPerformed
 
     private void botao18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao18ActionPerformed
-        int n = 15, linha, coluna = 0;
+        int n = 18, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao18ActionPerformed
 
     private void botao10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao10ActionPerformed
-        int n = 15, linha, coluna = 0;
+        int n = 10, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao10ActionPerformed
 
     private void botao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao2ActionPerformed
-        int n = 15, linha, coluna = 0;
+        int n = 2, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
         System.out.println("Linha " + linha + " Coluna " + coluna);
@@ -1325,11 +1328,12 @@ public class Interface extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         ControllerEstado controleEstado = new ControllerEstado();
-        controleEstado.inicializarMatriz();
-        controleEstado.verificarjogada();
+        
+        //controleEstado.verificarjogada();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                controleEstado.inicializarMatriz();
                 new Interface().setVisible(true);
 
             }

@@ -11,7 +11,6 @@ public class Estado {
     private ArrayList<Estado> filhos = new ArrayList<>();
     
     public Estado (int[][] tabuleiro, int nivel, boolean min, boolean max){
-        
         for (int i = 0; i < 4; i++){
             System.arraycopy(tabuleiro[i], 0, this.tabuleiro[i], 0, 4);
         }
