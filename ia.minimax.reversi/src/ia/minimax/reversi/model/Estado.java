@@ -2,10 +2,6 @@ package ia.minimax.reversi.model;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Waislan Sanches
- */
 public class Estado {
     private int[][] tabuleiro = new int[4][4];
     private int minimax;
