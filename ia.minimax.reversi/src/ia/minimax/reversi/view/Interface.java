@@ -5,6 +5,7 @@ import java.awt.Color;
 
 public class Interface extends javax.swing.JFrame {
     
+    private int botaoPressionado = 0;
     private static final Color JOGADOR = Color.BLACK;
     private static final Color IA = Color.WHITE;
     private static final Color COR_CASA_VAZIA = Color.GREEN;
@@ -892,6 +893,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 7, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 7;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao7ActionPerformed
 
@@ -899,6 +901,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 15, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 15;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao15ActionPerformed
 
@@ -906,6 +909,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 23, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 23;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao23ActionPerformed
 
@@ -913,6 +917,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 31, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 31;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao31ActionPerformed
 
@@ -920,6 +925,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 6, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 6;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao6ActionPerformed
 
@@ -927,6 +933,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 30, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 30;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao30ActionPerformed
 
@@ -934,6 +941,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 22, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 22;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao22ActionPerformed
 
@@ -941,6 +949,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 14, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 14;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao14ActionPerformed
 
@@ -948,6 +957,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 4, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 4;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao4ActionPerformed
 
@@ -955,6 +965,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 28, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 28;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao28ActionPerformed
 
@@ -962,6 +973,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 20, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 20;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao20ActionPerformed
 
@@ -969,6 +981,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 12, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 12;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao12ActionPerformed
 
@@ -976,6 +989,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 5, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 5;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao5ActionPerformed
 
@@ -983,6 +997,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 13, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 13;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao13ActionPerformed
 
@@ -990,6 +1005,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 21, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 21;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao21ActionPerformed
 
@@ -997,6 +1013,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 29, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 29;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao29ActionPerformed
 
@@ -1004,6 +1021,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 0, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 0;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao0ActionPerformed
 
@@ -1011,6 +1029,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 8, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 8;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao8ActionPerformed
 
@@ -1018,6 +1037,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 16, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 16;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao16ActionPerformed
 
@@ -1025,6 +1045,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 24, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 24;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao24ActionPerformed
 
@@ -1032,6 +1053,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 1, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 1;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao1ActionPerformed
 
@@ -1039,6 +1061,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 9, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 9;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao9ActionPerformed
 
@@ -1046,6 +1069,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 17, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 17;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao17ActionPerformed
 
@@ -1053,6 +1077,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 25, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 25;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao25ActionPerformed
 
@@ -1060,6 +1085,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 26, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 26;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao26ActionPerformed
 
@@ -1067,6 +1093,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 18, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 18;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao18ActionPerformed
 
@@ -1074,6 +1101,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 10, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 10;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao10ActionPerformed
 
@@ -1081,6 +1109,7 @@ public class Interface extends javax.swing.JFrame {
         int n = 2, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 2;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao2ActionPerformed
 
@@ -1088,218 +1117,258 @@ public class Interface extends javax.swing.JFrame {
         int n = 3, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 3;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao3ActionPerformed
 
     private void botao11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao11ActionPerformed
         int n = 11, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 11;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao11ActionPerformed
 
     private void botao19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao19ActionPerformed
         int n = 19, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 19;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao19ActionPerformed
 
     private void botao27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao27ActionPerformed
         int n = 27, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 27;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao27ActionPerformed
 
     private void botao63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao63ActionPerformed
         int n = 63, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 63;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao63ActionPerformed
 
     private void botao55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao55ActionPerformed
         int n = 55, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 55;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao55ActionPerformed
 
     private void botao47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao47ActionPerformed
         int n = 47, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 47;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao47ActionPerformed
 
     private void botao39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao39ActionPerformed
         int n = 39, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 39;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao39ActionPerformed
 
     private void botao38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao38ActionPerformed
         int n = 38, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 38;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao38ActionPerformed
 
     private void botao46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao46ActionPerformed
         int n = 46, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 46;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao46ActionPerformed
 
     private void botao54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao54ActionPerformed
         int n = 54, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 54;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao54ActionPerformed
 
     private void botao61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao61ActionPerformed
         int n = 61, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 61;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao61ActionPerformed
 
     private void botao62ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao62ActionPerformed
         int n = 62, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 62;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao62ActionPerformed
 
     private void botao53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao53ActionPerformed
         int n = 53, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 53;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao53ActionPerformed
 
     private void botao45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao45ActionPerformed
         int n = 45, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 45;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao45ActionPerformed
 
     private void botao37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao37ActionPerformed
         int n = 37, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 37;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao37ActionPerformed
 
     private void botao36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao36ActionPerformed
         int n = 36, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 36;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao36ActionPerformed
 
     private void botao44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao44ActionPerformed
         int n = 44, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 44;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao44ActionPerformed
 
     private void botao52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao52ActionPerformed
         int n = 52, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 52;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao52ActionPerformed
 
     private void botao60ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao60ActionPerformed
         int n = 60, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 60;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao60ActionPerformed
 
     private void botao59ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao59ActionPerformed
         int n = 59, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 59;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao59ActionPerformed
 
     private void botao51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao51ActionPerformed
         int n = 51, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 51;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao51ActionPerformed
 
     private void botao43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao43ActionPerformed
         int n = 43, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 43;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao43ActionPerformed
 
     private void botao35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao35ActionPerformed
         int n = 35, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 35;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao35ActionPerformed
 
     private void botao34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao34ActionPerformed
         int n = 34, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 34;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao34ActionPerformed
 
     private void botao42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao42ActionPerformed
         int n = 42, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 42;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao42ActionPerformed
 
     private void botao50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao50ActionPerformed
         int n = 50, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 50;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao50ActionPerformed
 
     private void botao58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao58ActionPerformed
         int n = 58, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 58;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao58ActionPerformed
 
     private void botao57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao57ActionPerformed
         int n = 57, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 57;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao57ActionPerformed
 
     private void botao49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao49ActionPerformed
         int n = 49, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 49;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao49ActionPerformed
 
     private void botao41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao41ActionPerformed
         int n = 41, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 41;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao41ActionPerformed
 
     private void botao33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao33ActionPerformed
         int n = 33, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 33;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao33ActionPerformed
 
     private void botao32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao32ActionPerformed
         int n = 32, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 32;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao32ActionPerformed
 
     private void botao40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao40ActionPerformed
         int n = 40, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 40;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao40ActionPerformed
 
     private void botao48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao48ActionPerformed
         int n = 48, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 48;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao48ActionPerformed
 
     private void botao56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao56ActionPerformed
         int n = 56, linha, coluna = 0;
         linha = n / 8;
         coluna = n % 8;
+        botaoPressionado = 56;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao56ActionPerformed
 
+    public int getBotaoPressionado(){
+        return botaoPressionado;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -1328,12 +1397,13 @@ public class Interface extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         ControllerEstado controleEstado = new ControllerEstado();
+        Interface x = new Interface();
         
         //controleEstado.verificarjogada();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                controleEstado.inicializarMatriz();
+            public void run() {    
+                controleEstado.comecarJogo(controleEstado.inicializarMatriz(), x);
                 new Interface().setVisible(true);
             }
         });

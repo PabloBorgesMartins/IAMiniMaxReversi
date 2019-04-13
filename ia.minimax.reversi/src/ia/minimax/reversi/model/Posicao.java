@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ia.minimax.reversi.model;
 
 /**
@@ -16,7 +12,19 @@ public class Posicao {
         this.x = x;
         this.y = y;
     }
- 
     
+    public int getPosicaoX(){
+        return this.x;
+    }
+    
+    
+    public int getPosicaoY(){
+        return this.y;
+    }
+    
+ 
+    public int transformaBotao(){
+        return (((this.x)*8) + this.y); 
+    }
 }
 

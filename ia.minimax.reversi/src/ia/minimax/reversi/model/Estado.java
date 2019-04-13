@@ -3,7 +3,7 @@ package ia.minimax.reversi.model;
 import java.util.ArrayList;
 
 public class Estado {
-    private int[][] tabuleiro = new int[4][4];
+    private int[][] tabuleiro = new int[8][8];
     private int minimax;
     private int nivel;
     private boolean min;
@@ -11,8 +11,8 @@ public class Estado {
     private ArrayList<Estado> filhos = new ArrayList<>();
     
     public Estado (int[][] tabuleiro, int nivel, boolean min, boolean max){
-        for (int i = 0; i < 4; i++){
-            System.arraycopy(tabuleiro[i], 0, this.tabuleiro[i], 0, 4);
+        for (int i = 0; i < 8; i++){
+            System.arraycopy(tabuleiro[i], 0, this.tabuleiro[i], 0, 8);
         }
         
         this.nivel = nivel;

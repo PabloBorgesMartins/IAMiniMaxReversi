@@ -2,10 +2,12 @@ package ia.minimax.reversi.controller;
 
 import ia.minimax.reversi.model.Estado;
 import ia.minimax.reversi.model.Posicao;
+import ia.minimax.reversi.view.Interface;
 import java.util.ArrayList;
 
 public class ControllerEstado {
-    
+    public boolean jogo=true;
+    public int teclaSelecionada;
     /**
      * Representa uma casa vazia do tabuleiro do jogo.
      */
@@ -19,10 +21,11 @@ public class ControllerEstado {
      */
     public static final int IA = 2;
     
+    static Estado raiz;
     static int n = 8;
     static int matrizEstado[][] = new int[n][n]; // 1 para preto 2 para branco e 0 para vazio
 
-    public static void inicializarMatriz() {
+    public Estado inicializarMatriz() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 matrizEstado[i][j] = 0;
@@ -38,10 +41,33 @@ public class ControllerEstado {
             }
             System.out.println(" ");
         }    
+        return raiz = new Estado(matrizEstado, 0, true, false);
     }
     
-    public void comecarJogo(){
+    public void comecarJogo(Estado raiz, Interface i){
         
+        ArrayList<Posicao> jogadas = new ArrayList<>();
+        int vez=1;
+        
+        while(!jogo){    
+            if(vez == JOGADOR){   // Se for a vez do homano
+               jogadas.addAll(geraPossibilidades(JOGADOR, IA, raiz));   //Gera as posicoes na qual o homano pode jogar
+               int j = 0, flag=0;
+               while(j < jogadas.size() && flag == 0) {   
+                    if (jogadas.get(j).transformaBotao() == i.getBotaoPressionado()) { //Se o botao pressionado for uma casa jogavel
+                        matrizEstado[jogadas.get(j).getPosicaoX()][jogadas.get(j).getPosicaoY()] = 1;
+                        raiz.setTabuleiro(matrizEstado);
+                        i. // Atualiza toda a matriz com valores de peças corretos 
+                        flag=1;
+                    }
+               }
+               jogadas.clear(); //limpa a array de jogadas que ele havia achado para a ocasiao
+            }
+            if(vez == IA){    //Se for a vez da IA
+                
+                  
+            }   
+        }
     }
     
     
