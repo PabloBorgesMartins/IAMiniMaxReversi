@@ -1,6 +1,7 @@
 package ia.minimax.reversi.controller;
 
 import ia.minimax.reversi.model.Estado;
+import ia.minimax.reversi.model.Posicao;
 import java.util.ArrayList;
 
 public class ControllerEstado {
@@ -62,7 +63,92 @@ public class ControllerEstado {
 
         return true;
     }
-
+    
+    
+    /*
+    // Funcao que busca lugares onde possa ser feito uma jogada
+    */
+    private ArrayList<Posicao> geraPossibilidades(char player, char opponent, Estado e){ 
+        ArrayList<Posicao> posicoes = new ArrayList<>();
+        
+        for(int i=0;i<8;++i){
+            for(int j=0;j<8;++j){
+                if(e.getTabuleiro()[i][j] == opponent){
+                    int I = i, J = j;  
+                    if(i-1>=0 && j-1>=0 && e.getTabuleiro()[i-1][j-1] == 0){ 
+                        i = i+1; j = j+1;
+                        while(i<7 && j<7 && e.getTabuleiro()[i][j] == opponent){i++;j++;}
+                        if(i<=7 && j<=7 && e.getTabuleiro()[i][j] == player){
+                            posicoes.add(new Posicao(I-1, J-1));
+                        }
+                    } 
+                    i=I;j=J;
+                    if(i-1>=0 && e.getTabuleiro()[i-1][j] == 0){
+                        i = i+1;
+                        while(i<7 && e.getTabuleiro()[i][j] == opponent) i++;
+                        if(i<=7 && e.getTabuleiro()[i][j] == player){     
+                            posicoes.add(new Posicao(I-1, J));
+                        }
+                    } 
+                    i=I;
+                    if(i-1>=0 && j+1<=7 && e.getTabuleiro()[i-1][j+1] == 0){
+                        i = i+1; j = j-1;
+                        while(i<7 && j>0 && e.getTabuleiro()[i][j] == opponent){i++;j--;}
+                        if(i<=7 && j>=0 && e.getTabuleiro()[i][j] == player){
+                            posicoes.add(new Posicao(I-1, J+1));
+                        }
+                    }  
+                    i=I;j=J;
+                    if(j-1>=0 && e.getTabuleiro()[i][j-1] == 0){
+                        j = j+1;
+                        while(j<7 && e.getTabuleiro()[i][j] == opponent)j++;
+                        if(j<=7 && e.getTabuleiro()[i][j] == player){
+                            posicoes.add(new Posicao(I, J-1));
+                        }
+                    }
+                    j=J;
+                    if(j+1<=7 && e.getTabuleiro()[i][j+1] == 0){
+                        j=j-1;
+                        while(j>0 && e.getTabuleiro()[i][j] == opponent)j--;
+                        if(j>=0 && e.getTabuleiro()[i][j] == player){
+                            posicoes.add(new Posicao(I, J+1));
+                        }
+                    }
+                    j=J;
+                    if(i+1<=7 && j-1>=0 && e.getTabuleiro()[i+1][j-1] == 0){
+                        i=i-1;j=j+1;
+                        while(i>0 && j<7 && e.getTabuleiro()[i][j] == opponent){i--;j++;}
+                        if(i>=0 && j<=7 && e.getTabuleiro()[i][j] == player){
+                            posicoes.add(new Posicao(I+1, J-1));
+                        }
+                    }
+                    i=I;j=J;
+                    if(i+1 <= 7 && e.getTabuleiro()[i+1][j] == 0){
+                        i=i-1;
+                        while(i>0 && e.getTabuleiro()[i][j] == opponent) i--;
+                        if(i>=0 && e.getTabuleiro()[i][j] == player){
+                            posicoes.add(new Posicao(I+1, J));
+                        }
+                    }
+                    i=I;
+                    if(i+1 <= 7 && j+1 <=7 && e.getTabuleiro()[i+1][j+1] == 0){
+                        i=i-1;j=j-1;
+                        while(i>0 && j>0 && e.getTabuleiro()[i][j] == opponent){i--;j--;}
+                        if(i>=0 && j>=0 && e.getTabuleiro()[i][j] == player){
+                            posicoes.add(new Posicao(I+1, J+1));
+                        }
+                    }
+                    i=I;j=J;
+                    }
+                } 
+            } 
+        return posicoes;
+    } 
+    
+    
+    
+    
+    
     // 1 - preto; 2 - branco; 0 - vazio
     public Estado verificarPossibilidades(Estado e, int posicao) {
         Estado retorno = new Estado();

@@ -1335,7 +1335,6 @@ public class Interface extends javax.swing.JFrame {
             public void run() {
                 controleEstado.inicializarMatriz();
                 new Interface().setVisible(true);
-
             }
         });
     }

@@ -63,5 +63,7 @@ public class Estado {
     public boolean isMax() {
         return max;
     } 
+
+    
     
 }
