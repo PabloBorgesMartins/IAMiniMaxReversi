@@ -34,6 +34,10 @@ public class Estado {
     public void setTabuleiro(int[][] tabuleiro) {
         this.tabuleiro = tabuleiro;
     }
+    
+    public int getCorPecaTabuleiro(int i, int j){ //Esse método retorna de quem é a peça na casa[i][j]
+        return this.tabuleiro[i][j];
+    }
 
     public int getMinimax() {
         return minimax;

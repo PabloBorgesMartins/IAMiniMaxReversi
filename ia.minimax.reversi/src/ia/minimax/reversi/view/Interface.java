@@ -3,6 +3,7 @@ package ia.minimax.reversi.view;
 import ia.minimax.reversi.controller.ControllerEstado;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 
 public class Interface extends javax.swing.JFrame {
@@ -14,6 +15,14 @@ public class Interface extends javax.swing.JFrame {
 
     public Interface() {
         initComponents();
+    }
+    
+    public void pintaBotaoIA(JButton botao){
+        botao.setBackground(IACOR);
+    }
+    
+    public void pintaBotaoJOGADOR(JButton botao){
+        botao.setBackground(JOGADORCOR);
     }
 
     @SuppressWarnings("unchecked")
