@@ -58,7 +58,7 @@ public class ControllerEstado {
                     if (jogadas.get(j).transformaBotao() == i.getBotaoPressionado()) { //Se o botao pressionado for uma casa jogavel
                         matrizEstado[jogadas.get(j).getPosicaoX()][jogadas.get(j).getPosicaoY()] = 1;
                         raiz.setTabuleiro(matrizEstado);
-                        i. // Atualiza toda a matriz com valores de peças corretos 
+                        //i. // Atualiza toda a matriz com valores de peças corretos 
                         flag=1;
                     }
                 }

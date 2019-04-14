@@ -2,9 +2,10 @@ package ia.minimax.reversi.view;
 
 import ia.minimax.reversi.controller.ControllerEstado;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class Interface extends javax.swing.JFrame {
-    
+
     private int botaoPressionado;
     private static final Color JOGADOR = Color.BLACK;
     private static final Color IA = Color.WHITE;
@@ -92,6 +93,9 @@ public class Interface extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Reversi");
+        setIconImage( new ImageIcon(getClass().getResource("/ia/minimax/reversi/img/icone_reversi.png")).
+            getImage());
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel1.setText("Reversi");
@@ -1365,10 +1369,10 @@ public class Interface extends javax.swing.JFrame {
         botaoPressionado = 56;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao56ActionPerformed
 
-    public int getBotaoPressionado(){
+    public int getBotaoPressionado() {
         return botaoPressionado;
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -1402,8 +1406,8 @@ public class Interface extends javax.swing.JFrame {
         //controleEstado.verificarjogada();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {    
-                controleEstado.setarInterface(controleEstado.inicializarMatriz(), jogo);                
+            public void run() {
+                controleEstado.setarInterface(controleEstado.inicializarMatriz(), jogo);
             }
         });
     }
