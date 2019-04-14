@@ -70,11 +70,13 @@ public class ControllerEstado {
         return filhos;
     }
 
+    
     public boolean ehEstadoFinal(Estado e) {
 
         return true;
     }
 
+    
     // 1 - preto; 2 - branco; 0 - vazio
     public Estado verificarPossibilidades(Estado e, int posicao) {
         Estado retorno = new Estado();

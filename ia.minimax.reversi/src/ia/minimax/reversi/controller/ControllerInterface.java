@@ -57,12 +57,75 @@ public class ControllerInterface {
     }
 
     // Este método deve desabilitar todos os botões para que o humano não possa jogar na vez da IA
-    public void desabilitarBotoes() {
-
+    public void desabilitarBotoes(Interface tela) {
+        tela.botao0.setEnabled(false);
+        tela.botao1.setEnabled(false);
+        tela.botao2.setEnabled(false);
+        tela.botao3.setEnabled(false);
+        tela.botao4.setEnabled(false);
+        tela.botao5.setEnabled(false);
+        tela.botao6.setEnabled(false);
+        tela.botao7.setEnabled(false);
+        tela.botao8.setEnabled(false);
+        tela.botao9.setEnabled(false);
+        tela.botao10.setEnabled(false);
+        tela.botao11.setEnabled(false);
+        tela.botao12.setEnabled(false);
+        tela.botao13.setEnabled(false);
+        tela.botao14.setEnabled(false);
+        tela.botao15.setEnabled(false);
+        tela.botao16.setEnabled(false);
+        tela.botao17.setEnabled(false);
+        tela.botao18.setEnabled(false);
+        tela.botao19.setEnabled(false);
+        tela.botao20.setEnabled(false);
+        tela.botao21.setEnabled(false);
+        tela.botao22.setEnabled(false);
+        tela.botao23.setEnabled(false);
+        tela.botao24.setEnabled(false);
+        tela.botao25.setEnabled(false);
+        tela.botao26.setEnabled(false);
+        tela.botao27.setEnabled(false);
+        tela.botao28.setEnabled(false);
+        tela.botao29.setEnabled(false);
+        tela.botao30.setEnabled(false);
+        tela.botao31.setEnabled(false);
+        tela.botao32.setEnabled(false);
+        tela.botao33.setEnabled(false);
+        tela.botao34.setEnabled(false);
+        tela.botao35.setEnabled(false);
+        tela.botao36.setEnabled(false);
+        tela.botao37.setEnabled(false);
+        tela.botao38.setEnabled(false);
+        tela.botao39.setEnabled(false);
+        tela.botao40.setEnabled(false);
+        tela.botao41.setEnabled(false);
+        tela.botao42.setEnabled(false);
+        tela.botao43.setEnabled(false);
+        tela.botao44.setEnabled(false);
+        tela.botao45.setEnabled(false);
+        tela.botao46.setEnabled(false);
+        tela.botao47.setEnabled(false);
+        tela.botao48.setEnabled(false);
+        tela.botao49.setEnabled(false);
+        tela.botao50.setEnabled(false);
+        tela.botao51.setEnabled(false);
+        tela.botao52.setEnabled(false);
+        tela.botao53.setEnabled(false);
+        tela.botao54.setEnabled(false);
+        tela.botao55.setEnabled(false);
+        tela.botao56.setEnabled(false);
+        tela.botao57.setEnabled(false);
+        tela.botao58.setEnabled(false);
+        tela.botao59.setEnabled(false);
+        tela.botao60.setEnabled(false);
+        tela.botao61.setEnabled(false);
+        tela.botao62.setEnabled(false);
+        tela.botao63.setEnabled(false);
     }
 
     // Este método deve ser chamado após cada jogada da IA e receber o estado gerado pela jogada
-    public void habilitarBotoes(Estado estadoAtual) {
+    public void habilitarBotoes(Estado estadoAtual, Interface tela) {
 
         ArrayList<Posicao> botoes = new ArrayList<>();
 
@@ -72,6 +135,136 @@ public class ControllerInterface {
         //laço para habilitar os botoes possiveis na interface
         for (Posicao botao : botoes) {
             // habilita este botao na interface
+            switch(botao.getPosicaoX()*8 + botao.getPosicaoY()){  //conta que gera o numero do botao desejado
+                case 0:
+                    tela.botao0.setEnabled(true);break;
+                case 1:
+                    tela.botao1.setEnabled(true);break;
+                case 2:
+                    tela.botao2.setEnabled(true);break;
+                case 3:
+                    tela.botao3.setEnabled(false);break;
+                case 4:
+                    tela.botao4.setEnabled(false);break;
+                case 5:
+                    tela.botao5.setEnabled(false);break;
+                case 6:
+                    tela.botao6.setEnabled(false);break;
+                case 7:
+                    tela.botao7.setEnabled(false);break;
+                case 8:
+                    tela.botao8.setEnabled(false);break;
+                case 9:
+                    tela.botao9.setEnabled(false);break;
+                case 10:
+                    tela.botao10.setEnabled(false);break;
+                case 11:
+                    tela.botao11.setEnabled(false);break;
+                case 12:
+                    tela.botao12.setEnabled(false);break;
+                case 13:
+                    tela.botao13.setEnabled(false);break;
+                case 14:
+                    tela.botao14.setEnabled(false);break;
+                case 15:
+                    tela.botao15.setEnabled(false);break;
+                case 16:
+                    tela.botao16.setEnabled(false);break;
+                case 17:
+                    tela.botao17.setEnabled(false);break;
+                case 18:
+                    tela.botao18.setEnabled(false);break;
+                case 19:
+                    tela.botao19.setEnabled(false);break;
+                case 20:
+                    tela.botao20.setEnabled(false);break;
+                case 21:
+                    tela.botao21.setEnabled(false);break;
+                case 22:
+                    tela.botao22.setEnabled(false);break;
+                case 23:
+                    tela.botao23.setEnabled(false);break;
+                case 24:
+                    tela.botao24.setEnabled(false);break;
+                case 25:
+                    tela.botao25.setEnabled(false);break;
+                case 26:
+                    tela.botao26.setEnabled(false);break;    
+                case 27:
+                    tela.botao27.setEnabled(false);break;   
+                case 28:
+                    tela.botao28.setEnabled(false);break;    
+                case 29:
+                    tela.botao29.setEnabled(false);break;    
+                case 30:
+                    tela.botao30.setEnabled(false);break;
+                case 31:
+                    tela.botao31.setEnabled(false);break;    
+                case 32:
+                    tela.botao32.setEnabled(false);break;    
+                case 33:
+                    tela.botao33.setEnabled(false);break;    
+                case 34:
+                    tela.botao34.setEnabled(false);break;    
+                case 35:
+                    tela.botao35.setEnabled(false);break;    
+                case 36:
+                    tela.botao36.setEnabled(false);break;    
+                case 37:
+                    tela.botao37.setEnabled(false);break;   
+                case 38:
+                    tela.botao38.setEnabled(false);break;   
+                case 39:
+                    tela.botao39.setEnabled(false);break;   
+                case 40:
+                    tela.botao40.setEnabled(false);break;
+                case 41:
+                    tela.botao41.setEnabled(false);break;     
+                case 42:
+                    tela.botao42.setEnabled(false);break;     
+                case 43:
+                    tela.botao43.setEnabled(false);break;     
+                case 44:
+                    tela.botao44.setEnabled(false);break;     
+                case 45:
+                    tela.botao45.setEnabled(false);break;     
+                case 46:
+                    tela.botao46.setEnabled(false);break;     
+                case 47:
+                    tela.botao47.setEnabled(false);break;     
+                case 48:
+                    tela.botao48.setEnabled(false);break;    
+                case 49:
+                    tela.botao49.setEnabled(false);break;     
+                case 50:
+                    tela.botao50.setEnabled(false);break;     
+                case 51:
+                    tela.botao51.setEnabled(false);break;     
+                case 52:
+                    tela.botao52.setEnabled(false);break;    
+                case 53:
+                    tela.botao53.setEnabled(false);break;   
+                case 54:
+                    tela.botao54.setEnabled(false);break;    
+                case 55:
+                    tela.botao55.setEnabled(false);break;   
+                case 56:
+                    tela.botao56.setEnabled(false);break;  
+                case 57:
+                    tela.botao57.setEnabled(false);break;    
+                case 58:
+                    tela.botao58.setEnabled(false);break;    
+                case 59:
+                    tela.botao59.setEnabled(false);break;    
+                case 60:
+                    tela.botao60.setEnabled(false);break;    
+                case 61:
+                    tela.botao61.setEnabled(false);break;    
+                case 62:
+                    tela.botao62.setEnabled(false);break;
+                case 63:
+                    tela.botao63.setEnabled(false);break;
+            }
         }
 
     }
