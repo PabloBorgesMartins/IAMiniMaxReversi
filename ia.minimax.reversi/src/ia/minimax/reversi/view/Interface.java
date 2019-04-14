@@ -5,7 +5,7 @@ import java.awt.Color;
 
 public class Interface extends javax.swing.JFrame {
     
-    private int botaoPressionado = 0;
+    private int botaoPressionado;
     private static final Color JOGADOR = Color.BLACK;
     private static final Color IA = Color.WHITE;
     private static final Color COR_CASA_VAZIA = Color.GREEN;
