@@ -66,5 +66,13 @@ public class Estado {
     public boolean isMax() {
         return max;
     } 
+
+    public void setMin(boolean min) {
+        this.min = min;
+    }
+
+    public void setMax(boolean max) {
+        this.max = max;
+    }
     
 }

@@ -6,3 +6,4 @@
 /ia.minimax.reversi/nbproject/private/
 /ia.minimax.reversi/nbproject/Makefile-*.mk
 /ia.minimax.reversi/nbproject/Package-*.bash
+*.class
