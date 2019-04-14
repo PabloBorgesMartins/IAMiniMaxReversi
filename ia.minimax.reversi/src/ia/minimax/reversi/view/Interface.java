@@ -4,6 +4,10 @@ import ia.minimax.reversi.controller.ControllerEstado;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
+/**
+ *
+ * @author Henrique Veiga
+ */
 public class Interface extends javax.swing.JFrame {
 
     private int botaoPressionado;

@@ -7,12 +7,11 @@ import java.util.ArrayList;
 
 public class ControllerEstado {
 
-    public boolean jogo = true;
-    public int teclaSelecionada;
+    //public int teclaSelecionada;
     public static final int CASA_VAZIA = 0; // Representa uma casa vazia do tabuleiro do jogo
     public static final int JOGADOR = 1; // Inteiro para identificar o jogador
     public static final int IA = 2; // Inteiro para identificar a IA
-    static Estado raiz;
+    //static Estado raiz;
     static int n = 8;
     static int matrizEstado[][] = new int[n][n]; // 1 - preto; 2 - branco; 0 - vazio
 
@@ -39,199 +38,13 @@ public class ControllerEstado {
             System.out.println(" ");
         }
 
-        raiz = new Estado(matrizEstado, 0, true, false);
+        Estado raiz = new Estado(matrizEstado, 0, true, false);
 
         return raiz;
     }
 
     
-    //Esse metodo recebe um estado e qual jogador fará a jogada no momento
-    public void jogar(Estado raiz, int jogador) {
-        
-        int vez = jogador;
-        Estado estadoAtual = raiz;
-
-        // enquanto o jogo não terminar
-        while (jogo) {
-            if (vez == JOGADOR) {
-                // habilita os botoes que o jogador pode clicar
-                habilitarBotoes(estadoAtual);
-                // jogador faz a jogada
-                
-                // estadoAtual recebe a jogada que o jogador fez
-                
-                // seta a interface
-                setarInterface(estadoAtual);
-                //
-                vez = IA;
-            } else {
-                // desabilita todos os botoes para o jogador não poder jogar
-                desabilitarBotoes();
-
-                // IA faz a jogada chamando o minimax
-                
-                // estadoAtual recebe a jogada que a IA fez
-                
-                // seta a interface
-                setarInterface(estadoAtual);
-                
-                // muda a vez do jogador
-                vez = JOGADOR;
-
-                // habilita os botoes possiveis para o jogador
-                habilitarBotoes(estadoAtual);
-
-            }
-
-        }
-
-    }
     
-    // Este método deve desabilitar todos os botões para que o humano não possa jogar na vez da IA
-    public void desabilitarBotoes () {
-        
-    }
-
-    // Este método deve ser chamado após cada jogada da IA e receber o estado gerado pela jogada
-    public void habilitarBotoes(Estado estadoAtual) {
-
-        ArrayList<Posicao> botoes = new ArrayList<>();
-
-        // encontra os botões possíveis para o humano
-        botoes.addAll(procuraBotoesPossiveis(estadoAtual));
-
-        //laço para habilitar os botoes possiveis na interface
-        for (Posicao botao : botoes) {
-            // habilita este botao na interface
-        }
-
-    }
-
-    /*
-    Este método é chamado toda vez que acontece uma jogada
-    Espera como parâmetro o estado gerado pela jogada
-    */
-    public void setarInterface(Estado estadoAtual, Interface i) {
-
-        /*
-        seta a matriz para o estadoAtual
-        */
-    }
-
-    /*
-    // Funcao que busca lugares onde possa ser feito uma jogada
-     */
-    private ArrayList<Posicao> procuraBotoesPossiveis(Estado estadoAtual) {
-        int jogadorAtual = JOGADOR, oponente = IA;
-        /*
-        Este método deve retornar os botões possíveis para o humano jogar,
-        portando não precisa receber jogadorAtual e oponente,
-        pois sempre vai procurar somente os botões possíveis para o humano.
-         */
-
-        ArrayList<Posicao> posicoes = new ArrayList<>();
-
-        for (int i = 0; i < 8; ++i) {
-            for (int j = 0; j < 8; ++j) {
-                if (estadoAtual.getTabuleiro()[i][j] == oponente) {
-                    int I = i, J = j;
-                    if (i - 1 >= 0 && j - 1 >= 0 && estadoAtual.getTabuleiro()[i - 1][j - 1] == 0) {
-                        i = i + 1;
-                        j = j + 1;
-                        while (i < 7 && j < 7 && estadoAtual.getTabuleiro()[i][j] == oponente) {
-                            i++;
-                            j++;
-                        }
-                        if (i <= 7 && j <= 7 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
-                            posicoes.add(new Posicao(I - 1, J - 1));
-                        }
-                    }
-                    i = I;
-                    j = J;
-                    if (i - 1 >= 0 && estadoAtual.getTabuleiro()[i - 1][j] == 0) {
-                        i = i + 1;
-                        while (i < 7 && estadoAtual.getTabuleiro()[i][j] == oponente) {
-                            i++;
-                        }
-                        if (i <= 7 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
-                            posicoes.add(new Posicao(I - 1, J));
-                        }
-                    }
-                    i = I;
-                    if (i - 1 >= 0 && j + 1 <= 7 && estadoAtual.getTabuleiro()[i - 1][j + 1] == 0) {
-                        i = i + 1;
-                        j = j - 1;
-                        while (i < 7 && j > 0 && estadoAtual.getTabuleiro()[i][j] == oponente) {
-                            i++;
-                            j--;
-                        }
-                        if (i <= 7 && j >= 0 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
-                            posicoes.add(new Posicao(I - 1, J + 1));
-                        }
-                    }
-                    i = I;
-                    j = J;
-                    if (j - 1 >= 0 && estadoAtual.getTabuleiro()[i][j - 1] == 0) {
-                        j = j + 1;
-                        while (j < 7 && estadoAtual.getTabuleiro()[i][j] == oponente) {
-                            j++;
-                        }
-                        if (j <= 7 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
-                            posicoes.add(new Posicao(I, J - 1));
-                        }
-                    }
-                    j = J;
-                    if (j + 1 <= 7 && estadoAtual.getTabuleiro()[i][j + 1] == 0) {
-                        j = j - 1;
-                        while (j > 0 && estadoAtual.getTabuleiro()[i][j] == oponente) {
-                            j--;
-                        }
-                        if (j >= 0 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
-                            posicoes.add(new Posicao(I, J + 1));
-                        }
-                    }
-                    j = J;
-                    if (i + 1 <= 7 && j - 1 >= 0 && estadoAtual.getTabuleiro()[i + 1][j - 1] == 0) {
-                        i = i - 1;
-                        j = j + 1;
-                        while (i > 0 && j < 7 && estadoAtual.getTabuleiro()[i][j] == oponente) {
-                            i--;
-                            j++;
-                        }
-                        if (i >= 0 && j <= 7 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
-                            posicoes.add(new Posicao(I + 1, J - 1));
-                        }
-                    }
-                    i = I;
-                    j = J;
-                    if (i + 1 <= 7 && estadoAtual.getTabuleiro()[i + 1][j] == 0) {
-                        i = i - 1;
-                        while (i > 0 && estadoAtual.getTabuleiro()[i][j] == oponente) {
-                            i--;
-                        }
-                        if (i >= 0 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
-                            posicoes.add(new Posicao(I + 1, J));
-                        }
-                    }
-                    i = I;
-                    if (i + 1 <= 7 && j + 1 <= 7 && estadoAtual.getTabuleiro()[i + 1][j + 1] == 0) {
-                        i = i - 1;
-                        j = j - 1;
-                        while (i > 0 && j > 0 && estadoAtual.getTabuleiro()[i][j] == oponente) {
-                            i--;
-                            j--;
-                        }
-                        if (i >= 0 && j >= 0 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
-                            posicoes.add(new Posicao(I + 1, J + 1));
-                        }
-                    }
-                    i = I;
-                    j = J;
-                }
-            }
-        }
-        return posicoes;
-    }
     
     // 1 - preto; 2 - branco; 0 - vazio
     public ArrayList<Estado> gerarArvore(Estado raiz) {
