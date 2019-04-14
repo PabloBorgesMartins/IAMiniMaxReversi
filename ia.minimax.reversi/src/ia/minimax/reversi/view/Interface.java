@@ -1398,13 +1398,12 @@ public class Interface extends javax.swing.JFrame {
         //</editor-fold>
         ControllerEstado controleEstado = new ControllerEstado();
         Interface x = new Interface();
-        
+        x.setVisible(true);
         //controleEstado.verificarjogada();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {    
-                controleEstado.comecarJogo(controleEstado.inicializarMatriz(), x);
-                new Interface().setVisible(true);
+                controleEstado.comecarJogo(controleEstado.inicializarMatriz(), x);                
             }
         });
     }
