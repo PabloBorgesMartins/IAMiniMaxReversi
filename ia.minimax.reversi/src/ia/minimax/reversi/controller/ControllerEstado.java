@@ -76,22 +76,29 @@ public class ControllerEstado {
     
 
     // 1 - preto; 2 - branco; 0 - vazio
-    public void gerarFilhos(Estado raiz) {
+    public ArrayList<Estado> gerarArvore(Estado raiz) {
         ArrayList<Estado> filhos = new ArrayList<>();
         int posicao;
 
         if (ehEstadoFinal(raiz)) {
-            return;
+            return null;
         }
 
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
                 if (raiz.getTabuleiro()[i][j] == 0) {
-                    posicao = i * 4 + j;
+                    posicao = i * 8 + j;
                     Estado filho = verificarPossibilidades(raiz, posicao);
+                    if (filho != null){
+                        filhos.add(filho);
+                    }
                 }
             }
         }
+        
+        
+        
+        return filhos;
     }
 
     public boolean ehEstadoFinal(Estado e) {
@@ -185,10 +192,11 @@ public class ControllerEstado {
     // 1 - preto; 2 - branco; 0 - vazio
     public Estado verificarPossibilidades(Estado e, int posicao) {
         Estado retorno = new Estado();
-        int[][] matriz = new int[4][4];
+        int n = 8;
+        int[][] matriz = new int[n][n];
         int contador = 0;
-        int linha = posicao/4;
-        int coluna = posicao%4;
+        int linha = posicao/n;
+        int coluna = posicao%n;
         
         // setando a matriz com posições vazias
         for (int i = 0; i < 4; i++){
