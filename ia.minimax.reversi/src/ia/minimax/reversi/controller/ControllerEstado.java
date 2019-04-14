@@ -44,25 +44,24 @@ public class ControllerEstado {
         return raiz;
     }
 
-    public void jogar(Estado raiz) {
-        // humano começa jogando
-        int vez = JOGADOR;
+    
+    //Esse metodo recebe um estado e qual jogador fará a jogada no momento
+    public void jogar(Estado raiz, int jogador) {
+        
+        int vez = jogador;
         Estado estadoAtual = raiz;
-
-        // habilita os botoes possiveis para a primeira jogada
-        habilitarBotoes(estadoAtual);
 
         // enquanto o jogo não terminar
         while (jogo) {
             if (vez == JOGADOR) {
-
+                // habilita os botoes que o jogador pode clicar
+                habilitarBotoes(estadoAtual);
                 // jogador faz a jogada
                 
                 // estadoAtual recebe a jogada que o jogador fez
                 
                 // seta a interface
                 setarInterface(estadoAtual);
-
                 //
                 vez = IA;
             } else {
@@ -123,6 +122,7 @@ public class ControllerEstado {
     // Funcao que busca lugares onde possa ser feito uma jogada
      */
     private ArrayList<Posicao> procuraBotoesPossiveis(Estado estadoAtual) {
+        int jogadorAtual = JOGADOR, oponente = IA;
         /*
         Este método deve retornar os botões possíveis para o humano jogar,
         portando não precisa receber jogadorAtual e oponente,
