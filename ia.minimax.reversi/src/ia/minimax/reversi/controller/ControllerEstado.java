@@ -6,42 +6,41 @@ import ia.minimax.reversi.view.Interface;
 import java.util.ArrayList;
 
 public class ControllerEstado {
-    public boolean jogo=true;
+    public boolean jogo = true;
     public int teclaSelecionada;
-    /**
-     * Representa uma casa vazia do tabuleiro do jogo.
-     */
-    public static final int CASA_VAZIA = 0;   
-    /**
-     * Inteiro para identificar o jogador.
-     */
-    public static final int JOGADOR = 1;
-    /**
-     * Inteiro para identificar a IA.
-     */
-    public static final int IA = 2;
-    
+    public static final int CASA_VAZIA = 0; // Representa uma casa vazia do tabuleiro do jogo
+    public static final int JOGADOR = 1; //Inteiro para identificar o jogador
+    public static final int IA = 2; // Inteiro para identificar a IA
     static Estado raiz;
     static int n = 8;
-    static int matrizEstado[][] = new int[n][n]; // 1 para preto 2 para branco e 0 para vazio
+    static int matrizEstado[][] = new int[n][n]; // 1 - preto; 2 - branco; 0 - vazio
 
     public Estado inicializarMatriz() {
+        
+        // setando todas as posições para vazio
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 matrizEstado[i][j] = 0;
             }
         }
+        
+        // setando as posições do meio para branco e preto
         matrizEstado[3][3] = IA;
-        matrizEstado[4][3] = JOGADOR;
         matrizEstado[3][4] = JOGADOR;
+        matrizEstado[4][3] = JOGADOR;
         matrizEstado[4][4] = IA;
+        
+        // printando a matriz para conferir se está correta
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 System.out.print(matrizEstado[i][j] + " ");
             }
             System.out.println(" ");
-        }    
-        return raiz = new Estado(matrizEstado, 0, true, false);
+        }
+        
+        raiz = new Estado(matrizEstado, 0, true, false);
+        
+        return raiz;
     }
     
     public void comecarJogo(Estado raiz, Interface i){
@@ -50,8 +49,8 @@ public class ControllerEstado {
         int vez=1;
         
         while(!jogo){    
-            if(vez == JOGADOR){   // Se for a vez do homano
-               jogadas.addAll(geraPossibilidades(JOGADOR, IA, raiz));   //Gera as posicoes na qual o homano pode jogar
+            if(vez == JOGADOR){   // Se for a vez do humano
+               jogadas.addAll(geraPossibilidades(JOGADOR, IA, raiz));   //Gera as posicoes na qual o humano pode jogar
                int j = 0, flag=0;
                while(j < jogadas.size() && flag == 0) {   
                     if (jogadas.get(j).transformaBotao() == i.getBotaoPressionado()) { //Se o botao pressionado for uma casa jogavel
@@ -182,6 +181,7 @@ public class ControllerEstado {
     // 1 - preto; 2 - branco; 0 - vazio
     public Estado verificarPossibilidades(Estado e, int posicao) {
         Estado retorno = new Estado();
+        int 
         int[][] matriz = new int[4][4];
         int contador = 0;
         int linha = posicao/4;

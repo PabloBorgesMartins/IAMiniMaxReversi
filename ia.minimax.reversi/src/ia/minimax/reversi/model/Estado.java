@@ -11,6 +11,8 @@ public class Estado {
     private ArrayList<Estado> filhos = new ArrayList<>();
     
     public Estado (int[][] tabuleiro, int nivel, boolean min, boolean max){
+        
+        // copiando a matriz do argumento para a matriz do estado
         for (int i = 0; i < 8; i++){
             System.arraycopy(tabuleiro[i], 0, this.tabuleiro[i], 0, 8);
         }
@@ -18,6 +20,7 @@ public class Estado {
         this.nivel = nivel;
         this.min = min;
         this.max = max;
+        
     }
     
     public Estado (){
