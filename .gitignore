@@ -1,1 +1,8 @@
 /ia.minimax.reversi/build/
+/ia.minimax.reversi/nbbuild/
+/ia.minimax.reversi/dist/
+/ia.minimax.reversi/nbdist/
+/ia.minimax.reversi/.nb-gradle/
+/ia.minimax.reversi/nbproject/private/
+/ia.minimax.reversi/nbproject/Makefile-*.mk
+/ia.minimax.reversi/nbproject/Package-*.bash
