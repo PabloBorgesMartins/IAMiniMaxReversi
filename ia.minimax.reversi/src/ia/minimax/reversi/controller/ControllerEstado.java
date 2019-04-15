@@ -2,6 +2,9 @@ package ia.minimax.reversi.controller;
 
 import ia.minimax.reversi.model.Estado;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class ControllerEstado {
     
@@ -39,38 +42,92 @@ public class ControllerEstado {
         return raiz;
     }
 
-    // 1 - preto; 2 - branco; 0 - vazio
-    public ArrayList<Estado> gerarArvore(Estado raiz) {
-        ArrayList<Estado> filhos = new ArrayList<>();
-        int posicao;
+    public static void main(String[] args) {
+        ControllerEstado controllerEstado = new ControllerEstado();
 
-        if (ehEstadoFinal(raiz)) {
-            return null;
+        int[][] matriz = new int[8][8];
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                matriz[i][j] = 0;
+            }
         }
+
+        matriz[3][3] = IA;
+        matriz[3][4] = JOGADOR;
+        matriz[4][3] = JOGADOR;
+        matriz[4][4] = IA;
+
+        Estado raiz = new Estado();
+
+        raiz.setTabuleiro(matriz);
+        raiz.setMax(false);
+        raiz.setMin(true);
+        raiz.setNivel(0);
+
+//        System.out.println("Nivel: " + raiz.getNivel());
+//        System.out.println(raiz.toString());
+
+        Queue<Estado> fila = new LinkedList<>();
+        Queue<Estado> fila2 = new LinkedList<>();
+
+        HashSet<String> estadosGerados = new HashSet<>();
+        
+        fila.addAll(controllerEstado.gerarArvore(raiz, estadosGerados));
+
+        //System.out.println("Nivel: " + fila.element().getNivel());
+//        for (Estado e : fila) {
+//            System.out.println(e.toString());
+//        }
+
+        while (!fila.isEmpty()) {
+            Estado estado = fila.remove();
+            Queue<Estado> aux = controllerEstado.gerarArvore(estado, estadosGerados);
+            if (aux != null) {
+                fila2.addAll(aux);
+                if (fila.isEmpty() && fila2 != null) {
+                    System.out.println("Nivel " + fila2.element().getNivel());
+//                    for (Estado e : fila2) {
+//                        System.out.println(e.toString());
+//                    }
+
+                    fila.addAll(fila2);
+                    fila2.clear();
+                }
+            }
+
+        }
+
+    }
+
+    // 1 - preto; 2 - branco; 0 - vazio
+    public Queue<Estado> gerarArvore(Estado raiz, HashSet<String> estadosGerados) {
+        Queue<Estado> filhos = new LinkedList<>();
+        int posicao;
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if (raiz.getTabuleiro()[i][j] == 0) {
                     posicao = i * N + j;
                     Estado filho = verificarPossibilidades(raiz, posicao);
-                    if (filho != null) {
+                    //System.out.println("Adicionando filho " + filho.estadoEmStringDeUmaLinha());
+                    if (filho != null && estadosGerados.add(filho.estadoEmStringDeUmaLinha())) {
                         filhos.add(filho);
                     }
                 }
             }
         }
-        // fazer recursão
-        return filhos;
+
+        if (!filhos.isEmpty()) {
+            raiz.setFilhos(filhos);
+            return filhos;
+        }
+
+        // se o array filhos estiver vazio, a raiz é um estado final
+        return null;
+
     }
 
-    
-    public boolean ehEstadoFinal(Estado e) {
-        // implementar este método
-        return true;
-    }
-
-    
-    // 1 - preto; 2 - branco; 0 - vazio
     public Estado verificarPossibilidades(Estado estadoAtual, int posicao) {
 
         Estado retorno = new Estado();
@@ -80,18 +137,19 @@ public class ControllerEstado {
         int linha = posicao / N;
         int coluna = posicao % N;
 
-        // setando a matriz com posições vazias
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                matriz[i][j] = 0;
+        // setando a matriz com a matriz do estado atual
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                matriz[i][j] = estadoAtual.getTabuleiro()[i][j];
             }
         }
 
         if (estadoAtual.isMax()) {
+
             // verifica possibilidades para bola branca
             // verificando possibilidades na horizontal à direita
             int i = coluna + 1;
-            while (estadoAtual.getTabuleiro()[linha][i] == 1 && i < N) {
+            while (i < N - 1 && estadoAtual.getTabuleiro()[linha][i] == 1) {
                 // enquanto tiver bolas pretas à direta e enquanto não estrapolar o vetor
                 flag = true;
                 i++;
@@ -117,7 +175,7 @@ public class ControllerEstado {
             //verificando possibilidades na horizontal à esquerda
             i = coluna - 1;
             flag = false;
-            while (estadoAtual.getTabuleiro()[linha][i] == 1 && i >= 0) {
+            while (i > 0 && estadoAtual.getTabuleiro()[linha][i] == 1) {
                 // enquanto tiver bolas pretas à esquerda e enquanto não estrapolar o vetor
                 flag = true;
                 i--;
@@ -143,7 +201,7 @@ public class ControllerEstado {
             // verificando possibilidades na vertical acima
             i = linha - 1;
             flag = false;
-            while (estadoAtual.getTabuleiro()[i][coluna] == 1 && i >= 0) {
+            while (i > 0 && estadoAtual.getTabuleiro()[i][coluna] == 1) {
                 // enquanto tiver bolas pretas acima e enquanto não estrapolar o vetor
                 flag = true;
                 i--;
@@ -169,7 +227,7 @@ public class ControllerEstado {
             // verificando possibilidades na vertical abaixo
             i = linha + 1;
             flag = false;
-            while (estadoAtual.getTabuleiro()[i][coluna] == 1 && i < N) {
+            while (i < N - 1 && estadoAtual.getTabuleiro()[i][coluna] == 1) {
                 // enquanto tiver bolas pretas abaixo e enquanto não estrapolar o vetor
                 flag = true;
                 i++;
@@ -196,7 +254,7 @@ public class ControllerEstado {
             i = linha + 1;
             int j = coluna + 1;
             flag = false;
-            while (estadoAtual.getTabuleiro()[i][j] == 1 && i < N && j < N) {
+            while (j < N - 1 && i < N - 1 && estadoAtual.getTabuleiro()[i][j] == 1) {
                 // enquanto tiver bolas pretas na diagonal inferior direita e enquanto não estrapolar o vetor
                 flag = true;
                 i++;
@@ -226,7 +284,7 @@ public class ControllerEstado {
             i = linha - 1;
             j = coluna - 1;
             flag = false;
-            while (estadoAtual.getTabuleiro()[i][j] == 1 && i >= 0 && j >= 0) {
+            while (j > 0 && i > 0 && estadoAtual.getTabuleiro()[i][j] == 1) {
                 // enquanto tiver bolas pretas na diagonal superior esquerda e enquanto não estrapolar o vetor
                 flag = true;
                 i--;
@@ -256,7 +314,7 @@ public class ControllerEstado {
             i = linha + 1;
             j = coluna - 1;
             flag = false;
-            while (estadoAtual.getTabuleiro()[i][j] == 1 && i < N && j >= 0) {
+            while (j > 0 && i < N - 1 && estadoAtual.getTabuleiro()[i][j] == 1) {
                 // enquanto tiver bolas pretas na diagonal inferior esquerda e enquanto não estrapolar o vetor
                 flag = true;
                 i++;
@@ -286,7 +344,7 @@ public class ControllerEstado {
             i = linha - 1;
             j = coluna + 1;
             flag = false;
-            while (estadoAtual.getTabuleiro()[i][j] == 1 && i >= 0 && j < N) {
+            while (j < N - 1 && i > 0 && estadoAtual.getTabuleiro()[i][j] == 1) {
                 // enquanto tiver bolas pretas na diagonal superior direita e enquanto não estrapolar o vetor
                 flag = true;
                 i++;
@@ -324,12 +382,13 @@ public class ControllerEstado {
 
             return null;
         }
+
         /*
         senão, verifica possibilidades para bola preta
-        */
+         */
         // verificando possibilidades na horizontal à direita
         int i = coluna + 1;
-        while (estadoAtual.getTabuleiro()[linha][i] == 2 && i < N) {
+        while (i < N - 1 && estadoAtual.getTabuleiro()[linha][i] == 2) {
             // enquanto tiver bolas brancas à direta e enquanto não estrapolar o vetor
             flag = true;
             i++;
@@ -355,7 +414,9 @@ public class ControllerEstado {
         //verificando possibilidades na horizontal à esquerda
         i = coluna - 1;
         flag = false;
-        while (estadoAtual.getTabuleiro()[linha][i] == 2 && i >= 0) {
+        //System.out.println(estadoAtual.toString());
+        //System.out.println("Acessando posicao [" +linha+"]["+i+"]");
+        while (i > 0 && estadoAtual.getTabuleiro()[linha][i] == 2) {
             // enquanto tiver bolas brancas à esquerda e enquanto não estrapolar o vetor
             flag = true;
             i--;
@@ -381,7 +442,7 @@ public class ControllerEstado {
         // verificando possibilidades na vertical acima
         i = linha - 1;
         flag = false;
-        while (estadoAtual.getTabuleiro()[i][coluna] == 2 && i >= 0) {
+        while (i > 0 && estadoAtual.getTabuleiro()[i][coluna] == 2) {
             // enquanto tiver bolas brancas acima e enquanto não estrapolar o vetor
             flag = true;
             i--;
@@ -407,7 +468,7 @@ public class ControllerEstado {
         // verificando possibilidades na vertical abaixo
         i = linha + 1;
         flag = false;
-        while (estadoAtual.getTabuleiro()[i][coluna] == 2 && i < N) {
+        while (i < N - 1 && estadoAtual.getTabuleiro()[i][coluna] == 2) {
             // enquanto tiver bolas brancas abaixo e enquanto não estrapolar o vetor
             flag = true;
             i++;
@@ -434,7 +495,7 @@ public class ControllerEstado {
         i = linha + 1;
         int j = coluna + 1;
         flag = false;
-        while (estadoAtual.getTabuleiro()[i][j] == 2 && i < N && j < N) {
+        while (i < N - 1 && j < N - 1 && estadoAtual.getTabuleiro()[i][j] == 2) {
             // enquanto tiver bolas brancas na diagonal inferior direita e enquanto não estrapolar o vetor
             flag = true;
             i++;
@@ -464,7 +525,7 @@ public class ControllerEstado {
         i = linha - 1;
         j = coluna - 1;
         flag = false;
-        while (estadoAtual.getTabuleiro()[i][j] == 2 && i >= 0 && j >= 0) {
+        while (i > 0 && j > 0 && estadoAtual.getTabuleiro()[i][j] == 2) {
             // enquanto tiver bolas brancas na diagonal superior esquerda e enquanto não estrapolar o vetor
             flag = true;
             i--;
@@ -494,7 +555,7 @@ public class ControllerEstado {
         i = linha + 1;
         j = coluna - 1;
         flag = false;
-        while (estadoAtual.getTabuleiro()[i][j] == 2 && i < N && j >= 0) {
+        while (i < N - 1 && j > 0 && estadoAtual.getTabuleiro()[i][j] == 2) {
             // enquanto tiver bolas brancas na diagonal inferior esquerda e enquanto não estrapolar o vetor
             flag = true;
             i++;
@@ -524,7 +585,7 @@ public class ControllerEstado {
         i = linha - 1;
         j = coluna + 1;
         flag = false;
-        while (estadoAtual.getTabuleiro()[i][j] == 2 && i >= 0 && j < N) {
+        while (i > 0 && j < N - 1 && estadoAtual.getTabuleiro()[i][j] == 2) {
             // enquanto tiver bolas brancas na diagonal superior direita e enquanto não estrapolar o vetor
             flag = true;
             i++;

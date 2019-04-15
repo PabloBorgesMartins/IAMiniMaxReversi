@@ -1,6 +1,8 @@
 package ia.minimax.reversi.model;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Estado {
     private int[][] tabuleiro = new int[8][8];
@@ -8,7 +10,7 @@ public class Estado {
     private int nivel;
     private boolean min;
     private boolean max;
-    private ArrayList<Estado> filhos = new ArrayList<>();
+    private Queue<Estado> filhos = new LinkedList<>();
     
     public Estado (int[][] tabuleiro, int nivel, boolean min, boolean max){
         
@@ -110,11 +112,11 @@ public class Estado {
         this.nivel = nivel;
     }
 
-    public ArrayList<Estado> getFilhos() {
+    public Queue<Estado> getFilhos() {
         return filhos;
     }
 
-    public void setFilhos(ArrayList<Estado> filhos) {
+    public void setFilhos(Queue<Estado> filhos) {
         this.filhos = filhos;
     }
 
@@ -132,6 +134,30 @@ public class Estado {
 
     public void setMax(boolean max) {
         this.max = max;
+    }
+    
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        
+        for (int i = 0; i < tabuleiro.length; i++){
+            for (int j = 0; j < tabuleiro[0].length; j++){
+                sb.append(tabuleiro[i][j]).append(" ");
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
+    
+    public String estadoEmStringDeUmaLinha(){
+        StringBuilder sb = new StringBuilder();
+        
+        for (int i = 0; i < tabuleiro.length; i++){
+            for (int j = 0; j < tabuleiro[0].length; j++){
+                sb.append(tabuleiro[i][j]);
+            }
+        }
+        return sb.toString();
     }
     
 }
