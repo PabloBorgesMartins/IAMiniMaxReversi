@@ -62,29 +62,31 @@ public class InicializaicaoView extends javax.swing.JFrame {
 
     private void inicianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicianteActionPerformed
         System.out.println("Botão Iniciante clicado");
-        Interface chamaInterface = new Interface();
+        //Interface chamaInterface = new Interface();
+        Interface4x4 chamaInterface = new Interface4x4();
         chamaInterface.setVisible(true);
-        chamaInterface.dificuldadeSelecionada(15, chamaInterface);
         dispose();
+        chamaInterface.dificuldadeSelecionada(15, chamaInterface);
     }//GEN-LAST:event_inicianteActionPerformed
 
     private void moderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moderadoActionPerformed
         System.out.println("Botão Moderado clicado");
-        Interface chamaInterface = new Interface();
+        Interface4x4 chamaInterface = new Interface4x4();
+        //Interface chamaInterface = new Interface();
         chamaInterface.setVisible(true);
-        chamaInterface.dificuldadeSelecionada(30, chamaInterface);
         dispose();
+        chamaInterface.dificuldadeSelecionada(30, chamaInterface);
     }//GEN-LAST:event_moderadoActionPerformed
 
     private void experienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_experienteActionPerformed
         System.out.println("Botão Experiente clicado");
-        Interface chamaInterface = new Interface();
+        //Interface chamaInterface = new Interface();
+        Interface4x4 chamaInterface = new Interface4x4();
         chamaInterface.setVisible(true);
-        chamaInterface.dificuldadeSelecionada(50, chamaInterface);
         dispose();
+        chamaInterface.dificuldadeSelecionada(50, chamaInterface);
     }//GEN-LAST:event_experienteActionPerformed
 
-   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
