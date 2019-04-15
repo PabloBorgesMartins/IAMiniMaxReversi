@@ -7,3 +7,5 @@
 /ia.minimax.reversi/nbproject/Makefile-*.mk
 /ia.minimax.reversi/nbproject/Package-*.bash
 *.class
+
+ia\.minimax\.reversi/nbproject/
