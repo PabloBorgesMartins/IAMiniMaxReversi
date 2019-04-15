@@ -64,6 +64,7 @@ public class InicializaicaoView extends javax.swing.JFrame {
         System.out.println("Botão Iniciante clicado");
         Interface chamaInterface = new Interface();
         chamaInterface.setVisible(true);
+        chamaInterface.dificuldadeSelecionada(15);
         dispose();
     }//GEN-LAST:event_inicianteActionPerformed
 
@@ -71,6 +72,7 @@ public class InicializaicaoView extends javax.swing.JFrame {
         System.out.println("Botão Moderado clicado");
         Interface chamaInterface = new Interface();
         chamaInterface.setVisible(true);
+        chamaInterface.dificuldadeSelecionada(30);
         dispose();
     }//GEN-LAST:event_moderadoActionPerformed
 
@@ -78,12 +80,11 @@ public class InicializaicaoView extends javax.swing.JFrame {
         System.out.println("Botão Experiente clicado");
         Interface chamaInterface = new Interface();
         chamaInterface.setVisible(true);
+        chamaInterface.dificuldadeSelecionada(50);
         dispose();
     }//GEN-LAST:event_experienteActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

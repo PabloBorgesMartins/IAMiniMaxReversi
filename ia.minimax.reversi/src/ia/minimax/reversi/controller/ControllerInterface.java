@@ -28,23 +28,25 @@ public class ControllerInterface {
         // enquanto o jogo não terminar
         while (jogo) {
             if (vez == JOGADOR) {
-
+                int jogadaHumano;
                 // jogador faz a jogada
+                jogadaHumano = esperaJogadaHumano(estadoAtual, tela);
                 // estadoAtual recebe a jogada que o jogador fez
+                estadoAtual.atualizaTabuleiro(jogadaHumano, JOGADOR, IA);
                 // seta a interface
                 setarInterface(estadoAtual, tela);
-
                 // passa a vez
                 vez = IA;
             } else {
+                int jogadaIA;
                 // desabilita todos os botoes para o jogador não poder jogar
                 desabilitarBotoes(tela);
-
                 // IA faz a jogada chamando o minimax
+                jogadaIA = miniMax(estadoAtual);
                 // estadoAtual recebe a jogada que a IA fez
+                estadoAtual.atualizaTabuleiro(jogadaIA, IA, JOGADOR);
                 // seta a interface
                 setarInterface(estadoAtual, tela);
-
                 // passa a vez
                 vez = JOGADOR;
 
@@ -56,6 +58,27 @@ public class ControllerInterface {
         }
 
     }
+      
+    
+    //Esse metodo espera o humano realizar uma jogada possível
+    public int esperaJogadaHumano(Estado estadoAtual, Interface tela){
+        ArrayList<Posicao> posicoesJogaveis = new ArrayList<>();
+        posicoesJogaveis.addAll(procuraBotoesPossiveis(estadoAtual));
+        int tecla = -1;
+        int flag = 0;
+        
+        while(flag == 0 && posicoesJogaveis.size()>0){
+            for (int i = 0; i < posicoesJogaveis.size(); i++) {
+                // Verifica se o botao pressionado está dentro do array de posicoes jogaveis
+                if( posicoesJogaveis.get(i).transformaBotao() == tela.getBotaoPressionado()){
+                    tecla = tela.getBotaoPressionado();
+                    flag=1;
+                }
+            }
+        }
+        return tecla;
+    }
+    
 
     // Este método deve desabilitar todos os botões para que o humano não possa jogar na vez da IA
     public void desabilitarBotoes(Interface tela) {
@@ -797,7 +820,7 @@ public class ControllerInterface {
     /*
     // Funcao que busca lugares onde possa ser feito uma jogada
      */
-    private ArrayList<Posicao> procuraBotoesPossiveis(Estado estadoAtual) {
+    public ArrayList<Posicao> procuraBotoesPossiveis(Estado estadoAtual) {
 
         int jogadorAtual = JOGADOR;
         int oponente = IA;

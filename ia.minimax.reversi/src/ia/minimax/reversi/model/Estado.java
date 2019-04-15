@@ -26,7 +26,62 @@ public class Estado {
     public Estado (){
         
     }
+    
+    public void atualizaTabuleiro(int tecla, int player, int opponent){
+        int i = tecla/8, j = tecla%8;
+        this.tabuleiro[i][j] = player; 
+        int I = i, J = j;  
+        
+        if(i-1>=0 && j-1>=0 && this.tabuleiro[i-1][j-1] == opponent){ 
+            i = i-1; j = j-1;
+            while(i>0 && j>0 && this.tabuleiro[i][j] == opponent){i--;j--;}
+            if(i>=0 && j>=0 && this.tabuleiro[i][j] == player) {while(i!=I-1 && j!=J-1)this.tabuleiro[++i][++j]=player;}
+        } 
+        i=I;j=J; 
+        if(i-1>=0 && this.tabuleiro[i-1][j] == opponent){
+            i = i-1;
+            while(i>0 && this.tabuleiro[i][j] == opponent) i--;
+            if(i>=0 && this.tabuleiro[i][j] == player) {while(i!=I-1)this.tabuleiro[++i][j]=player;}
+        } 
+        i=I; 
+        if(i-1>=0 && j+1<=7 && this.tabuleiro[i-1][j+1] == opponent){
+            i = i-1; j = j+1;
+            while(i>0 && j<7 && this.tabuleiro[i][j] == opponent){i--;j++;}
+            if(i>=0 && j<=7 && this.tabuleiro[i][j] == player) {while(i!=I-1 && j!=J+1)this.tabuleiro[++i][--j] = player;}
+        }   
+        i=I;j=J;
+        if(j-1>=0 && this.tabuleiro[i][j-1] == opponent){
+            j = j-1;
+            while(j>0 && this.tabuleiro[i][j] == opponent)j--;
+            if(j>=0 && this.tabuleiro[i][j] == player) {while(j!=J-1)this.tabuleiro[i][++j] = player;}
+        }
+        j=J; 
+        if(j+1<=7 && this.tabuleiro[i][j+1] == opponent){
+            j=j+1;
+            while(j<7 && this.tabuleiro[i][j] == opponent)j++;
+            if(j<=7 && this.tabuleiro[i][j] == player) {while(j!=J+1)this.tabuleiro[i][--j] = player;}
+        }
+        j=J; 
+        if(i+1<=7 && j-1>=0 && this.tabuleiro[i+1][j-1] == opponent){ 
+            i=i+1;j=j-1;
+            while(i<7 && j>0 && this.tabuleiro[i][j] == opponent){i++;j--;}
+            if(i<=7 && j>=0 && this.tabuleiro[i][j] == player) {while(i!=I+1 && j!=J-1)this.tabuleiro[--i][++j] = player;}
+        }
+        i=I;j=J; 
+        if(i+1 <= 7 && this.tabuleiro[i+1][j] == opponent){ 
+            i=i+1;
+            while(i<7 && this.tabuleiro[i][j] == opponent) i++;
+            if(i<=7 && this.tabuleiro[i][j] == player) {while(i!=I+1)this.tabuleiro[--i][j] = player;}
+        }
+        i=I;
 
+        if(i+1 <= 7 && j+1 <=7 && this.tabuleiro[i+1][j+1] == opponent){
+            i=i+1;j=j+1;
+            while(i<7 && j<7 && this.tabuleiro[i][j] == opponent){i++;j++;}
+            if(i<=7 && j<=7 && this.tabuleiro[i][j] == player)while(i!=I+1 && j!=J+1)this.tabuleiro[--i][--j] = player;}
+    }  
+    
+    
     public int[][] getTabuleiro() {
         return tabuleiro;
     }

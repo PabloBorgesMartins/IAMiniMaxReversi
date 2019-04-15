@@ -24,6 +24,14 @@ public class Interface extends javax.swing.JFrame {
     public void pintaBotaoJOGADOR(JButton botao){
         botao.setBackground(JOGADORCOR);
     }
+    
+    public int getBotaoPressionado() {
+        return botaoPressionado;
+    }
+
+    public void dificuldadeSelecionada(int dificuldade){
+        ControllerEstado controleEstado = new ControllerEstado();
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -1380,16 +1388,7 @@ public class Interface extends javax.swing.JFrame {
         botaoPressionado = 56;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao56ActionPerformed
 
-    public int getBotaoPressionado() {
-        return botaoPressionado;
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public void dificuldadeSelecionada(Interface jogo){
-        ControllerEstado controleEstado = new ControllerEstado();
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton botao0;
