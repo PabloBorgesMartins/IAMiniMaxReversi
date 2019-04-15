@@ -1,7 +1,6 @@
 package ia.minimax.reversi.controller;
 
 import ia.minimax.reversi.model.Estado;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -41,7 +40,7 @@ public class ControllerEstado {
 
         return raiz;
     }
-/*
+
     public static void main(String[] args) {
         ControllerEstado controllerEstado = new ControllerEstado();
 
@@ -126,7 +125,7 @@ public class ControllerEstado {
         // se o array filhos estiver vazio, a raiz é um estado final
         return null;
 
-    }*/
+    }
 
     public Estado verificarPossibilidades(Estado estadoAtual, int posicao) {
 
