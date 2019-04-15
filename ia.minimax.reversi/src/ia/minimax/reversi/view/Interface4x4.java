@@ -36,7 +36,7 @@ public class Interface4x4 extends javax.swing.JFrame {
         ControllerEstado controleEstado = new ControllerEstado();
         Estado inicio = controleEstado.inicializarMatriz();
         ControllerInterface controleInterface = new ControllerInterface();
-        //controleInterface.jogar(inicio, i);//esta dando erro nao sei porque 
+       // controleInterface.jogar(inicio, i);//esta dando erro nao sei porque 
     }
 
     @SuppressWarnings("unchecked")

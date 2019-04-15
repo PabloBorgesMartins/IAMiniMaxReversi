@@ -3,87 +3,136 @@ package ia.minimax.reversi.controller;
 import ia.minimax.reversi.model.Estado;
 import ia.minimax.reversi.model.Posicao;
 import ia.minimax.reversi.view.Interface;
+import ia.minimax.reversi.view.Interface4x4;
+import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
  * @author Pablo Borges
  */
 public class ControllerInterface {
-
+    int N = 8;
     private boolean jogo = true;
     private static final int JOGADOR = 1; // Inteiro para identificar o jogador
     private static final int IA = 2; // Inteiro para identificar a IA
 
     //Esse metodo recebe um estado
     public void jogar(Estado raiz, Interface tela) {
-
         Thread t = new Thread(() -> {
             int vez = JOGADOR;
-            Estado estadoAtual = raiz;
-
-            // habilita os botoes que o jogador pode clicar
-            habilitarBotoes(estadoAtual, tela);
 
             // enquanto o jogo não terminar
             while (jogo) {
                 if (vez == JOGADOR) {
-                    System.out.println("entrou aqui");
+                    System.out.println("Entrou na humano");
+                    // habilita os botoes que o jogador pode clicar
+                    // habilitarBotoes(raiz, tela);
+                    
                     int jogadaHumano;
                     // jogador faz a jogada
-                    jogadaHumano = esperaJogadaHumano(estadoAtual, tela);
-                    // estadoAtual recebe a jogada que o jogador fez
-                    estadoAtual.atualizaTabuleiro(jogadaHumano, JOGADOR, IA);
-                    // seta a interface, atualizando o tabuleiro
-                    setarInterface(estadoAtual, tela);
-                    //atualiza o placar do jogo
-                    atualizaScore(estadoAtual, tela);
-                    vez = IA;  // passa a vez
+                    jogadaHumano = esperaJogadaHumano(raiz, tela);
+                    
+                    if(jogadaHumano != -1){
+                        // estadoAtual recebe a jogada que o jogador fez
+                        raiz.atualizaTabuleiro(jogadaHumano, JOGADOR, IA);
+                        // seta a interface, atualizando o tabuleiro
+                        setarInterface(raiz, tela);
+                        //atualiza o placar do jogo
+                        atualizaScore(raiz, tela);
+                        vez = IA;  // passa a vez 
+                    }
+                    if(jogadaHumano == -2){
+                        jogo = false;
+                        break;
+                    }
+  
                 } else {
+                    System.out.println("Entrou na IA");
                     int jogadaIA;
                     // desabilita todos os botoes para o jogador não poder jogar
-                    desabilitarBotoes(tela);
+                    //desabilitarBotoes(tela);
                     // IA faz a jogada chamando o minimax
-                    jogadaIA = miniMax(estadoAtual);
-                    // estadoAtual recebe a jogada que a IA fez
-                    estadoAtual.atualizaTabuleiro(jogadaIA, IA, JOGADOR);
-                    // seta a interface, atualizando o tabuleiro
-                    setarInterface(estadoAtual, tela);
-                    //atualiza o placar do jogo
-                    atualizaScore(estadoAtual, tela);
-                    // habilita os botoes possiveis para o jogador
-                    habilitarBotoes(estadoAtual, tela);
-
-                    vez = JOGADOR; // passa a vez
+                    jogadaIA = gulosa(raiz);
+                    if(jogadaIA != -1){
+                        System.out.println("entrou na condicao IA");
+                        // estadoAtual recebe a jogada que a IA fez
+                        raiz.atualizaTabuleiro(jogadaIA, IA, JOGADOR);
+                        // seta a interface, atualizando o tabuleiro
+                        setarInterface(raiz, tela);
+                        //atualiza o placar do jogo
+                        atualizaScore(raiz, tela);
+                        esperaTempo();
+                        vez = JOGADOR; 
+                    }
+                    if(jogadaIA == -2){
+                        jogo=false;
+                        break;
+                    }
+                    
                 }
-
             }
         });
         t.start();
-
+        System.out.println("jogo acabou");
     }
 
-    public int miniMax(Estado estado) {
-        return 1;
+    public int gulosa(Estado estado) {
+        int n=0, maiorValor=0, melhorPosicao=0;
+        ArrayList<Posicao> posicoesJogaveis = new ArrayList<>();
+        posicoesJogaveis.addAll(procuraBotoesPossiveis(estado, IA, JOGADOR));
+        
+        if(posicoesJogaveis.size() > 0){
+            for (int i = 0; i < posicoesJogaveis.size(); i++) {
+                Estado auxiliar = new Estado(estado.getTabuleiro(), 0, true, false);
+                auxiliar.atualizaTabuleiro(posicoesJogaveis.get(i).transformaBotao(), IA, JOGADOR);
+                
+                for (int j = 0; j < 8; j++) {
+                    for (int k = 0; k < 8; k++) {
+                        if (auxiliar.getTabuleiro()[j][k] == JOGADOR) {
+                            n--;
+                        }
+                        if (auxiliar.getTabuleiro()[j][k] == IA) {
+                            n++;
+                        }
+                    }
+                }
+                if(i==0){
+                    maiorValor = n;
+                }
+                if (n >= maiorValor) {
+                    maiorValor = n;
+                    melhorPosicao = i;
+                }
+                n=0;
+            }
+            return posicoesJogaveis.get(melhorPosicao).transformaBotao();
+        }
+        return -1;
     }
 
     //Esse metodo espera o humano realizar uma jogada possível
     public int esperaJogadaHumano(Estado estadoAtual, Interface tela) {
+        System.out.println("entrou esperaJogadaHumano");
         ArrayList<Posicao> posicoesJogaveis = new ArrayList<>();
-        posicoesJogaveis.addAll(procuraBotoesPossiveis(estadoAtual));
-        int tecla = -1;
+        posicoesJogaveis.addAll(procuraBotoesPossiveis(estadoAtual, JOGADOR, IA));
         int flag = 0;
 
         while (flag == 0 && posicoesJogaveis.size() > 0) {
+            System.out.println("esta dentro do while");
             for (int i = 0; i < posicoesJogaveis.size(); i++) {
                 // Verifica se o botao pressionado está dentro do array de posicoes jogaveis
                 if (posicoesJogaveis.get(i).transformaBotao() == tela.getBotaoPressionado()) {
-                    tecla = tela.getBotaoPressionado();
-                    flag = 1;
+                    int tecla = tela.getBotaoPressionado();
+                    return tecla;
                 }
             }
         }
-        return tecla;
+        if(posicoesJogaveis.size()==0){
+            return -2;
+        }
+        return -1;
     }
 
     //Esse método atualiza o placar com o numero de peças de cada jogador
@@ -101,6 +150,16 @@ public class ControllerInterface {
         tela.placarIA.setText(pecasIA.toString());
     }
 
+    
+    public void esperaTempo(){
+        int x;
+        for (int i = 0; i < 1000000000; i++) {
+            for (int j = 0; j < 1000000000; j++) {
+                x = j*i;
+            }
+        }
+    }
+    
     // Este método deve desabilitar todos os botões para que o humano não possa jogar na vez da IA
     public void desabilitarBotoes(Interface tela) {
         tela.botao0.setEnabled(false);
@@ -167,20 +226,20 @@ public class ControllerInterface {
         tela.botao61.setEnabled(false);
         tela.botao62.setEnabled(false);
         tela.botao63.setEnabled(false);
+        
     }
 
     // Este método deve ser chamado após cada jogada da IA e receber o estado gerado pela jogada
     public void habilitarBotoes(Estado estadoAtual, Interface tela) {
-
         ArrayList<Posicao> botoes = new ArrayList<>();
 
         // encontra os botões possíveis para o humano
-        botoes.addAll(procuraBotoesPossiveis(estadoAtual));
+        botoes.addAll(procuraBotoesPossiveis(estadoAtual, JOGADOR, IA));
 
         //laço para habilitar os botoes possiveis na interface
-        for (Posicao botao : botoes) {
+        for (int i=0; i< botoes.size(); i++) {
             // habilita este botao na interface
-            switch (botao.getPosicaoX() * 8 + botao.getPosicaoY()) {  //conta que gera o numero do botao desejado
+            switch (botoes.get(i).getPosicaoX() * 8 + botoes.get(i).getPosicaoY()) {  //conta que gera o numero do botao desejado
                 case 0:
                     tela.botao0.setEnabled(true);
                     break;
@@ -384,181 +443,182 @@ public class ControllerInterface {
      */
     public void setarInterface(Estado estadoAtual, Interface tela) {
         //percorrerá toda a matriz do estado atual e alterará as peças da tela para cor certa
-        for (int j = 0; j < 64; j++) {
+        
+        for (int j = 0; j < N*N; j++) {
             switch (j) {
                 case 0:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
-                        tela.pintaBotaoJOGADOR(tela.botao0);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
+                        tela.botao0.setBackground(Color.BLACK);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
-                        tela.pintaBotaoIA(tela.botao0);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
+                        tela.botao0.setBackground(Color.WHITE);
                     }
                     break;
                 case 1:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
-                        tela.pintaBotaoJOGADOR(tela.botao1);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
+                        tela.botao1.setBackground(Color.BLACK);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
-                        tela.pintaBotaoIA(tela.botao1);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
+                        tela.botao1.setBackground(Color.WHITE);
                     }
                     break;
                 case 2:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
-                        tela.pintaBotaoJOGADOR(tela.botao2);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
+                        tela.botao2.setBackground(Color.BLACK);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
-                        tela.pintaBotaoIA(tela.botao2);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
+                        tela.botao2.setBackground(Color.WHITE);
                     }
                     break;
                 case 3:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
-                        tela.pintaBotaoJOGADOR(tela.botao3);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
+                        tela.botao3.setBackground(Color.BLACK);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
-                        tela.pintaBotaoIA(tela.botao3);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
+                        tela.botao3.setBackground(Color.WHITE);
                     }
                     break;
                 case 4:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
-                        tela.pintaBotaoJOGADOR(tela.botao4);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
+                        tela.botao4.setBackground(Color.BLACK);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
-                        tela.pintaBotaoIA(tela.botao4);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
+                        tela.botao4.setBackground(Color.WHITE);
                     }
                     break;
                 case 5:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
-                        tela.pintaBotaoJOGADOR(tela.botao5);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
+                        tela.botao5.setBackground(Color.BLACK);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
-                        tela.pintaBotaoIA(tela.botao5);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
+                        tela.botao5.setBackground(Color.WHITE);
                     }
                     break;
                 case 6:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
-                        tela.pintaBotaoJOGADOR(tela.botao6);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
+                        tela.botao6.setBackground(Color.BLACK);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
-                        tela.pintaBotaoIA(tela.botao6);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
+                        tela.botao6.setBackground(Color.WHITE);
                     }
                     break;
                 case 7:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
-                        tela.pintaBotaoJOGADOR(tela.botao7);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
+                        tela.botao7.setBackground(Color.BLACK);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
-                        tela.pintaBotaoIA(tela.botao7);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
+                        tela.botao7.setBackground(Color.WHITE);
                     }
                     break;
                 case 8:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
-                        tela.pintaBotaoJOGADOR(tela.botao8);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
+                        tela.botao8.setBackground(Color.BLACK);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
-                        tela.pintaBotaoIA(tela.botao8);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
+                        tela.botao8.setBackground(Color.WHITE);
                     }
                     break;
                 case 9:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
-                        tela.pintaBotaoJOGADOR(tela.botao9);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
+                        tela.botao9.setBackground(Color.BLACK);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
-                        tela.pintaBotaoIA(tela.botao9);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
+                        tela.botao9.setBackground(Color.WHITE);
                     }
                     break;
                 case 10:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
-                        tela.pintaBotaoJOGADOR(tela.botao10);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
+                        tela.botao10.setBackground(Color.BLACK);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
-                        tela.pintaBotaoIA(tela.botao10);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
+                        tela.botao10.setBackground(Color.WHITE);
                     }
                     break;
                 case 11:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
-                        tela.pintaBotaoJOGADOR(tela.botao11);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
+                        tela.botao11.setBackground(Color.BLACK);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
-                        tela.pintaBotaoIA(tela.botao11);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
+                        tela.botao11.setBackground(Color.WHITE);
                     }
                     break;
                 case 12:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
-                        tela.pintaBotaoJOGADOR(tela.botao12);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
+                        tela.botao12.setBackground(Color.BLACK);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
-                        tela.pintaBotaoIA(tela.botao12);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
+                        tela.botao12.setBackground(Color.WHITE);
                     }
                     break;
                 case 13:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
-                        tela.pintaBotaoJOGADOR(tela.botao13);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
+                        tela.botao13.setBackground(Color.BLACK);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
-                        tela.pintaBotaoIA(tela.botao13);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
+                        tela.botao13.setBackground(Color.WHITE);
                     }
                     break;
                 case 14:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
-                        tela.pintaBotaoJOGADOR(tela.botao14);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
+                        tela.botao14.setBackground(Color.BLACK);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
-                        tela.pintaBotaoIA(tela.botao14);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
+                        tela.botao14.setBackground(Color.WHITE);
                     }
                     break;
                 case 15:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
-                        tela.pintaBotaoJOGADOR(tela.botao15);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
+                        tela.botao15.setBackground(Color.BLACK);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
-                        tela.pintaBotaoIA(tela.botao15);
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
+                        tela.botao15.setBackground(Color.WHITE);
                     }
                     break;
                 case 16:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao16);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao16);
                     }
                     break;
                 case 17:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao17);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao17);
                     }
                     break;
                 case 18:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao18);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao18);
                     }
                     break;
                 case 19:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao19);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao19);
                     }
                     break;
                 case 20:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao20);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao20);
                     }
                     break;
                 case 21:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao21);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao21);
                     }
                     break;
@@ -905,10 +965,8 @@ public class ControllerInterface {
     /*
     // Funcao que busca lugares onde possa ser feito uma jogada
      */
-    public ArrayList<Posicao> procuraBotoesPossiveis(Estado estadoAtual) {
-
-        int jogadorAtual = JOGADOR;
-        int oponente = IA;
+    public ArrayList<Posicao> procuraBotoesPossiveis(Estado estadoAtual, int jogadorAtual, int oponente) {
+        int N = 8;
         /*
         Este método deve retornar os botões possíveis para o humano jogar,
         portando não precisa receber jogadorAtual e oponente,
@@ -917,18 +975,18 @@ public class ControllerInterface {
 
         ArrayList<Posicao> posicoes = new ArrayList<>();
 
-        for (int i = 0; i < 8; ++i) {
-            for (int j = 0; j < 8; ++j) {
+        for (int i = 0; i < N; ++i) {
+            for (int j = 0; j < N; ++j) {
                 if (estadoAtual.getTabuleiro()[i][j] == oponente) {
                     int I = i, J = j;
                     if (i - 1 >= 0 && j - 1 >= 0 && estadoAtual.getTabuleiro()[i - 1][j - 1] == 0) {
                         i = i + 1;
                         j = j + 1;
-                        while (i < 7 && j < 7 && estadoAtual.getTabuleiro()[i][j] == oponente) {
+                        while (i < N-1 && j < N-1 && estadoAtual.getTabuleiro()[i][j] == oponente) {
                             i++;
                             j++;
                         }
-                        if (i <= 7 && j <= 7 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
+                        if (i <= N-1 && j <= N-1 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
                             posicoes.add(new Posicao(I - 1, J - 1));
                         }
                     }
@@ -936,22 +994,22 @@ public class ControllerInterface {
                     j = J;
                     if (i - 1 >= 0 && estadoAtual.getTabuleiro()[i - 1][j] == 0) {
                         i = i + 1;
-                        while (i < 7 && estadoAtual.getTabuleiro()[i][j] == oponente) {
+                        while (i < N-1 && estadoAtual.getTabuleiro()[i][j] == oponente) {
                             i++;
                         }
-                        if (i <= 7 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
+                        if (i <= N-1 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
                             posicoes.add(new Posicao(I - 1, J));
                         }
                     }
                     i = I;
-                    if (i - 1 >= 0 && j + 1 <= 7 && estadoAtual.getTabuleiro()[i - 1][j + 1] == 0) {
+                    if (i - 1 >= 0 && j + 1 <= N-1 && estadoAtual.getTabuleiro()[i - 1][j + 1] == 0) {
                         i = i + 1;
                         j = j - 1;
-                        while (i < 7 && j > 0 && estadoAtual.getTabuleiro()[i][j] == oponente) {
+                        while (i < N-1 && j > 0 && estadoAtual.getTabuleiro()[i][j] == oponente) {
                             i++;
                             j--;
                         }
-                        if (i <= 7 && j >= 0 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
+                        if (i <= N-1 && j >= 0 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
                             posicoes.add(new Posicao(I - 1, J + 1));
                         }
                     }
@@ -959,15 +1017,15 @@ public class ControllerInterface {
                     j = J;
                     if (j - 1 >= 0 && estadoAtual.getTabuleiro()[i][j - 1] == 0) {
                         j = j + 1;
-                        while (j < 7 && estadoAtual.getTabuleiro()[i][j] == oponente) {
+                        while (j < N-1 && estadoAtual.getTabuleiro()[i][j] == oponente) {
                             j++;
                         }
-                        if (j <= 7 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
+                        if (j <= N-1 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
                             posicoes.add(new Posicao(I, J - 1));
                         }
                     }
                     j = J;
-                    if (j + 1 <= 7 && estadoAtual.getTabuleiro()[i][j + 1] == 0) {
+                    if (j + 1 <= N-1 && estadoAtual.getTabuleiro()[i][j + 1] == 0) {
                         j = j - 1;
                         while (j > 0 && estadoAtual.getTabuleiro()[i][j] == oponente) {
                             j--;
@@ -977,20 +1035,20 @@ public class ControllerInterface {
                         }
                     }
                     j = J;
-                    if (i + 1 <= 7 && j - 1 >= 0 && estadoAtual.getTabuleiro()[i + 1][j - 1] == 0) {
+                    if (i + 1 <= N-1 && j - 1 >= 0 && estadoAtual.getTabuleiro()[i + 1][j - 1] == 0) {
                         i = i - 1;
                         j = j + 1;
-                        while (i > 0 && j < 7 && estadoAtual.getTabuleiro()[i][j] == oponente) {
+                        while (i > 0 && j < N-1 && estadoAtual.getTabuleiro()[i][j] == oponente) {
                             i--;
                             j++;
                         }
-                        if (i >= 0 && j <= 7 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
+                        if (i >= 0 && j <= N-1 && estadoAtual.getTabuleiro()[i][j] == jogadorAtual) {
                             posicoes.add(new Posicao(I + 1, J - 1));
                         }
                     }
                     i = I;
                     j = J;
-                    if (i + 1 <= 7 && estadoAtual.getTabuleiro()[i + 1][j] == 0) {
+                    if (i + 1 <= N-1 && estadoAtual.getTabuleiro()[i + 1][j] == 0) {
                         i = i - 1;
                         while (i > 0 && estadoAtual.getTabuleiro()[i][j] == oponente) {
                             i--;
@@ -1000,7 +1058,7 @@ public class ControllerInterface {
                         }
                     }
                     i = I;
-                    if (i + 1 <= 7 && j + 1 <= 7 && estadoAtual.getTabuleiro()[i + 1][j + 1] == 0) {
+                    if (i + 1 <= N-1 && j + 1 <= N-1 && estadoAtual.getTabuleiro()[i + 1][j + 1] == 0) {
                         i = i - 1;
                         j = j - 1;
                         while (i > 0 && j > 0 && estadoAtual.getTabuleiro()[i][j] == oponente) {

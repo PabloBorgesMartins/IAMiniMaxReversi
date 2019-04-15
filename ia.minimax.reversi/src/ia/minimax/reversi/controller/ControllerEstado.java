@@ -11,7 +11,7 @@ public class ControllerEstado {
     public static final int CASA_VAZIA = 0; // Representa uma casa vazia do tabuleiro do jogo
     public static final int JOGADOR = 1; // Inteiro para identificar o jogador
     public static final int IA = 2; // Inteiro para identificar a IA
-    private static final int N = 4;
+    private static final int N = 8;
     static int matrizEstado[][] = new int[N][N]; // 1 - preto; 2 - branco; 0 - vazio
 
     public Estado inicializarMatriz() {
@@ -24,10 +24,10 @@ public class ControllerEstado {
         }
 
         // setaNdo as posições do meio para branco e preto
-        matrizEstado[1][1] = IA;
-        matrizEstado[1][2] = JOGADOR;
-        matrizEstado[2][1] = JOGADOR;
-        matrizEstado[2][2] = IA;
+        matrizEstado[3][3] = IA;
+        matrizEstado[3][4] = JOGADOR;
+        matrizEstado[4][3] = JOGADOR;
+        matrizEstado[4][4] = IA;
 
         // printando a matriz para conferir se está correta
         for (int i = 0; i < N; i++) {
@@ -41,7 +41,7 @@ public class ControllerEstado {
 
         return raiz;
     }
-
+/*
     public static void main(String[] args) {
         ControllerEstado controllerEstado = new ControllerEstado();
 
@@ -126,7 +126,7 @@ public class ControllerEstado {
         // se o array filhos estiver vazio, a raiz é um estado final
         return null;
 
-    }
+    }*/
 
     public Estado verificarPossibilidades(Estado estadoAtual, int posicao) {
 
