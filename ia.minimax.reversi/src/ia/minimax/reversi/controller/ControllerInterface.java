@@ -28,6 +28,7 @@ public class ControllerInterface {
         // enquanto o jogo não terminar
         while (jogo) {
             if (vez == JOGADOR) {
+                System.out.println("entrou aqui");
                 int jogadaHumano;
                 // jogador faz a jogada
                 jogadaHumano = esperaJogadaHumano(estadoAtual, tela);
@@ -37,7 +38,6 @@ public class ControllerInterface {
                 setarInterface(estadoAtual, tela);
                 //atualiza o placar do jogo
                 atualizaScore(estadoAtual, tela);
-                
                 vez = IA;  // passa a vez
             } else {
                 int jogadaIA;
@@ -61,6 +61,12 @@ public class ControllerInterface {
 
     }
       
+    
+    public int miniMax(Estado estado){
+        return 1;
+    }
+    
+    
     
     //Esse metodo espera o humano realizar uma jogada possível
     public int esperaJogadaHumano(Estado estadoAtual, Interface tela){

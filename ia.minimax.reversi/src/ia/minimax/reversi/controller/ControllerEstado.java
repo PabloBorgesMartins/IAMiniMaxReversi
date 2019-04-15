@@ -4,12 +4,10 @@ import ia.minimax.reversi.model.Estado;
 import java.util.ArrayList;
 
 public class ControllerEstado {
-
-    //public int teclaSelecionada;
+    
     public static final int CASA_VAZIA = 0; // Representa uma casa vazia do tabuleiro do jogo
     public static final int JOGADOR = 1; // Inteiro para identificar o jogador
     public static final int IA = 2; // Inteiro para identificar a IA
-    //static Estado raiz;
     private static final int N = 8;
     static int matrizEstado[][] = new int[N][N]; // 1 - preto; 2 - branco; 0 - vazio
 

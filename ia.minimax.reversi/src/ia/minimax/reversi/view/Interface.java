@@ -1,6 +1,8 @@
 package ia.minimax.reversi.view;
 
 import ia.minimax.reversi.controller.ControllerEstado;
+import ia.minimax.reversi.controller.ControllerInterface;
+import ia.minimax.reversi.model.Estado;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -29,8 +31,11 @@ public class Interface extends javax.swing.JFrame {
         return botaoPressionado;
     }
 
-    public void dificuldadeSelecionada(int dificuldade){
+    public void dificuldadeSelecionada(int dificuldade, Interface i){
         ControllerEstado controleEstado = new ControllerEstado();
+        Estado inicio = controleEstado.inicializarMatriz();
+        ControllerInterface controleInterface = new ControllerInterface();
+        controleInterface.jogar(inicio, i);
     }
 
     @SuppressWarnings("unchecked")

@@ -64,7 +64,7 @@ public class InicializaicaoView extends javax.swing.JFrame {
         System.out.println("Botão Iniciante clicado");
         Interface chamaInterface = new Interface();
         chamaInterface.setVisible(true);
-        chamaInterface.dificuldadeSelecionada(15);
+        chamaInterface.dificuldadeSelecionada(15, chamaInterface);
         dispose();
     }//GEN-LAST:event_inicianteActionPerformed
 
@@ -72,7 +72,7 @@ public class InicializaicaoView extends javax.swing.JFrame {
         System.out.println("Botão Moderado clicado");
         Interface chamaInterface = new Interface();
         chamaInterface.setVisible(true);
-        chamaInterface.dificuldadeSelecionada(30);
+        chamaInterface.dificuldadeSelecionada(30, chamaInterface);
         dispose();
     }//GEN-LAST:event_moderadoActionPerformed
 
@@ -80,7 +80,7 @@ public class InicializaicaoView extends javax.swing.JFrame {
         System.out.println("Botão Experiente clicado");
         Interface chamaInterface = new Interface();
         chamaInterface.setVisible(true);
-        chamaInterface.dificuldadeSelecionada(50);
+        chamaInterface.dificuldadeSelecionada(50, chamaInterface);
         dispose();
     }//GEN-LAST:event_experienteActionPerformed
 
