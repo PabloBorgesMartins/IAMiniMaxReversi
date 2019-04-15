@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Estado {
-    private int[][] tabuleiro = new int[8][8];
+    private int[][] tabuleiro = new int[4][4];
     private int minimax;
     private int nivel;
     private boolean min;
@@ -15,8 +15,8 @@ public class Estado {
     public Estado (int[][] tabuleiro, int nivel, boolean min, boolean max){
         
         // copiando a matriz do argumento para a matriz do estado
-        for (int i = 0; i < 8; i++){
-            System.arraycopy(tabuleiro[i], 0, this.tabuleiro[i], 0, 8);
+        for (int i = 0; i < 4; i++){
+            System.arraycopy(tabuleiro[i], 0, this.tabuleiro[i], 0, 4);
         }
         
         this.nivel = nivel;
@@ -30,7 +30,7 @@ public class Estado {
     }
     
     public void atualizaTabuleiro(int tecla, int player, int opponent){
-        int i = tecla/8, j = tecla%8;
+        int i = tecla/4, j = tecla%4;
         this.tabuleiro[i][j] = player; 
         int I = i, J = j;  
         
