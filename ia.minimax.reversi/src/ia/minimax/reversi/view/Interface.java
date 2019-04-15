@@ -105,10 +105,10 @@ public class Interface extends javax.swing.JFrame {
         botao56 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        placarHumano = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        placarIA = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Reversi");
@@ -819,8 +819,8 @@ public class Interface extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Humano");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("2");
+        placarHumano.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        placarHumano.setText("2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -833,7 +833,7 @@ public class Interface extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(53, 53, 53)
-                        .addComponent(jLabel3)))
+                        .addComponent(placarHumano)))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -842,15 +842,15 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addGap(31, 31, 31)
-                .addComponent(jLabel3)
+                .addComponent(placarHumano)
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Máquina");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("2");
+        placarIA.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        placarIA.setText("2");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -863,7 +863,7 @@ public class Interface extends javax.swing.JFrame {
                         .addComponent(jLabel4))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(53, 53, 53)
-                        .addComponent(jLabel5)))
+                        .addComponent(placarIA)))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -872,7 +872,7 @@ public class Interface extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addGap(31, 31, 31)
-                .addComponent(jLabel5)
+                .addComponent(placarIA)
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -1457,11 +1457,11 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JButton botao9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    public javax.swing.JLabel placarHumano;
+    public javax.swing.JLabel placarIA;
     // End of variables declaration//GEN-END:variables
 }

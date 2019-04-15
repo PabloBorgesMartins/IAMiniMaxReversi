@@ -33,10 +33,12 @@ public class ControllerInterface {
                 jogadaHumano = esperaJogadaHumano(estadoAtual, tela);
                 // estadoAtual recebe a jogada que o jogador fez
                 estadoAtual.atualizaTabuleiro(jogadaHumano, JOGADOR, IA);
-                // seta a interface
+                // seta a interface, atualizando o tabuleiro
                 setarInterface(estadoAtual, tela);
-                // passa a vez
-                vez = IA;
+                //atualiza o placar do jogo
+                atualizaScore(estadoAtual, tela);
+                
+                vez = IA;  // passa a vez
             } else {
                 int jogadaIA;
                 // desabilita todos os botoes para o jogador não poder jogar
@@ -45,14 +47,14 @@ public class ControllerInterface {
                 jogadaIA = miniMax(estadoAtual);
                 // estadoAtual recebe a jogada que a IA fez
                 estadoAtual.atualizaTabuleiro(jogadaIA, IA, JOGADOR);
-                // seta a interface
+                // seta a interface, atualizando o tabuleiro
                 setarInterface(estadoAtual, tela);
-                // passa a vez
-                vez = JOGADOR;
-
+                //atualiza o placar do jogo
+                atualizaScore(estadoAtual, tela);
                 // habilita os botoes possiveis para o jogador
                 habilitarBotoes(estadoAtual, tela);
-
+                
+                vez = JOGADOR; // passa a vez
             }
 
         }
@@ -77,6 +79,22 @@ public class ControllerInterface {
             }
         }
         return tecla;
+    }
+    
+    
+    //Esse método atualiza o placar com o numero de peças de cada jogador
+    public void atualizaScore(Estado estado, Interface tela){
+        Integer pecasHumano=0, pecasIA=0;
+        for (int i = 0; i < 64; i++) {
+            if (estado.getTabuleiro()[i/8][i%8] == JOGADOR) {
+                pecasHumano++;
+            }
+            if (estado.getTabuleiro()[i/8][i%8] == IA) {
+                pecasIA++;
+            }
+        }
+        tela.placarHumano.setText(pecasHumano.toString());
+        tela.placarIA.setText(pecasIA.toString());
     }
     
 
