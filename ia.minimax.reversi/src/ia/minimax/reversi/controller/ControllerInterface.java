@@ -13,16 +13,17 @@ import java.util.Scanner;
  * @author Pablo Borges
  */
 public class ControllerInterface {
+    int nivel=0;
     int N = 8;
     private boolean jogo = true;
     private static final int JOGADOR = 1; // Inteiro para identificar o jogador
     private static final int IA = 2; // Inteiro para identificar a IA
+    int vez = JOGADOR;
 
     //Esse metodo recebe um estado
-    public void jogar(Estado raiz, Interface tela) {
+    public void jogar(Estado raiz, Interface tela, int dificuldade) {
         Thread t = new Thread(() -> {
-            int vez = JOGADOR;
-
+            
             // enquanto o jogo não terminar
             while (jogo) {
                 if (vez == JOGADOR) {
@@ -30,11 +31,13 @@ public class ControllerInterface {
                     // habilita os botoes que o jogador pode clicar
                     // habilitarBotoes(raiz, tela);
                     
-                    int jogadaHumano;
-                    // jogador faz a jogada
-                    jogadaHumano = esperaJogadaHumano(raiz, tela);
                     
+                    // jogador faz a jogada
+                    int jogadaHumano = esperaJogadaHumano(raiz, tela);
+                    
+                    //Entra aqui se o jogador tiver escolhido uma posicao valida
                     if(jogadaHumano != -1){
+                        nivel++;
                         // estadoAtual recebe a jogada que o jogador fez
                         raiz.atualizaTabuleiro(jogadaHumano, JOGADOR, IA);
                         // seta a interface, atualizando o tabuleiro
@@ -43,9 +46,9 @@ public class ControllerInterface {
                         atualizaScore(raiz, tela);
                         vez = IA;  // passa a vez 
                     }
-                    if(jogadaHumano == -2){
+                    if(jogadaHumano == -2){  //Entra aqui se nao houver jogadas possiveis para ele
                         jogo = false;
-                        break;
+                        printarVencedor(tela, raiz);
                     }
   
                 } else {
@@ -53,9 +56,17 @@ public class ControllerInterface {
                     int jogadaIA;
                     // desabilita todos os botoes para o jogador não poder jogar
                     //desabilitarBotoes(tela);
-                    // IA faz a jogada chamando o minimax
-                    jogadaIA = gulosa(raiz);
+                    
+                    // IA escolhe a posicao em que irá jogar
+                    if(nivel < dificuldade){
+                        jogadaIA = gulosa(raiz);
+                    }else{
+                        jogadaIA = getJogada(raiz);
+                    }
+                    
+                    //Se Achou uma jogada para a IA
                     if(jogadaIA != -1){
+                        nivel++;
                         System.out.println("entrou na condicao IA");
                         // estadoAtual recebe a jogada que a IA fez
                         raiz.atualizaTabuleiro(jogadaIA, IA, JOGADOR);
@@ -66,11 +77,11 @@ public class ControllerInterface {
                         esperaTempo();
                         vez = JOGADOR; 
                     }
+                    //Se nao achou
                     if(jogadaIA == -2){
                         jogo=false;
-                        break;
-                    }
-                    
+                        printarVencedor(tela, raiz);
+                    } 
                 }
             }
         });
@@ -78,6 +89,8 @@ public class ControllerInterface {
         System.out.println("jogo acabou");
     }
 
+    
+    //jogada inteligente da IA
     public int gulosa(Estado estado) {
         int n=0, maiorValor=0, melhorPosicao=0;
         ArrayList<Posicao> posicoesJogaveis = new ArrayList<>();
@@ -111,6 +124,44 @@ public class ControllerInterface {
         }
         return -1;
     }
+    
+    
+    //jogada burra da IA
+    public int getJogada(Estado estado){
+        ArrayList<Posicao> posicoesJogaveis = new ArrayList<>();
+        posicoesJogaveis.addAll(procuraBotoesPossiveis(estado, IA, JOGADOR));
+        
+        if (posicoesJogaveis.size() > 0) {
+            return posicoesJogaveis.get(0).transformaBotao();
+        }
+        return -1;
+    }
+    
+    
+    public void printarVencedor(Interface tela, Estado estado){
+        int pecasHumano = 0, pecasIA = 0;
+        for (int i = 0; i < 64; i++) {
+            if (estado.getTabuleiro()[i / 8][i % 8] == JOGADOR) {
+                pecasHumano++;
+            }
+            if (estado.getTabuleiro()[i / 8][i % 8] == IA) {
+                pecasIA++;
+            }
+        }
+        if (pecasHumano > pecasIA) {
+            tela.vencedor.setBackground(Color.green);
+            tela.vencedor.setText("jogador venceu!");    
+        }
+        if (pecasHumano < pecasIA) {
+            tela.vencedor.setBackground(Color.red);
+            tela.vencedor.setText("Máquina venceu!");
+        }
+        if (pecasHumano == pecasIA) {
+            tela.vencedor.setBackground(Color.yellow);
+            tela.vencedor.setText("Empate!");
+        }
+    }
+    
 
     //Esse metodo espera o humano realizar uma jogada possível
     public int esperaJogadaHumano(Estado estadoAtual, Interface tela) {

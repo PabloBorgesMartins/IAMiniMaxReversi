@@ -65,7 +65,7 @@ public class InicializaicaoView extends javax.swing.JFrame {
         Interface chamaInterface = new Interface();
         //Interface4x4 chamaInterface = new Interface4x4();
         chamaInterface.setVisible(true);
-        chamaInterface.dificuldadeSelecionada(15, chamaInterface);
+        chamaInterface.dificuldadeSelecionada(20, chamaInterface);
         dispose();
         
     }//GEN-LAST:event_inicianteActionPerformed
@@ -76,7 +76,7 @@ public class InicializaicaoView extends javax.swing.JFrame {
         Interface chamaInterface = new Interface();
         chamaInterface.setVisible(true);
         dispose();
-        chamaInterface.dificuldadeSelecionada(30, chamaInterface);
+        chamaInterface.dificuldadeSelecionada(38, chamaInterface);
     }//GEN-LAST:event_moderadoActionPerformed
 
     private void experienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_experienteActionPerformed
@@ -85,7 +85,7 @@ public class InicializaicaoView extends javax.swing.JFrame {
         //Interface4x4 chamaInterface = new Interface4x4();
         chamaInterface.setVisible(true);
         dispose();
-        chamaInterface.dificuldadeSelecionada(50, chamaInterface);
+        chamaInterface.dificuldadeSelecionada(100, chamaInterface);
     }//GEN-LAST:event_experienteActionPerformed
 
     public static void main(String args[]) {
