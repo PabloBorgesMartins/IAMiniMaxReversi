@@ -9,7 +9,9 @@ import javax.swing.JButton;
 
 
 public class Interface extends javax.swing.JFrame {
-
+    
+    public static final int JOGADOR = 1; // Inteiro para identificar o jogador
+    public static final int IA = 2; // Inteiro para identificar a IA
     private int botaoPressionado;
     private static final Color JOGADORCOR = Color.BLACK;
     private static final Color IACOR = Color.WHITE;
@@ -34,6 +36,7 @@ public class Interface extends javax.swing.JFrame {
     public void dificuldadeSelecionada(int dificuldade, Interface i){
         ControllerEstado controleEstado = new ControllerEstado();
         Estado inicio = controleEstado.inicializarMatriz();
+        int x = controleEstado.gerador(inicio, JOGADOR, IA);
         ControllerInterface controleInterface = new ControllerInterface();
         controleInterface.jogar(inicio, i, dificuldade);
     }

@@ -3,6 +3,8 @@ package ia.minimax.reversi.view;
 import ia.minimax.reversi.controller.ControllerEstado;
 import ia.minimax.reversi.controller.ControllerInterface;
 import ia.minimax.reversi.model.Estado;
+import static ia.minimax.reversi.view.Interface.IA;
+import static ia.minimax.reversi.view.Interface.JOGADOR;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -35,8 +37,15 @@ public class Interface4x4 extends javax.swing.JFrame {
     public void dificuldadeSelecionada(int dificuldade, Interface4x4 i){
         ControllerEstado controleEstado = new ControllerEstado();
         Estado inicio = controleEstado.inicializarMatriz();
+        int x = controleEstado.gerador(inicio, JOGADOR, IA);
+        /*
+        System.out.println("o valor de X é: " + x);
+        System.out.println("O valor do minimax raiz é : " + inicio.getMinimax());
+        for (int j = 0; j < inicio.getFilhos().size(); j++) {
+            System.out.println("minimax filho("+j+") = " + inicio.getFilho(j).getMinimax());
+        }*/
         ControllerInterface controleInterface = new ControllerInterface();
-       // controleInterface.jogar(inicio, i);//esta dando erro nao sei porque 
+        controleInterface.jogar(inicio, i, dificuldade);
     }
 
     @SuppressWarnings("unchecked")
@@ -67,6 +76,7 @@ public class Interface4x4 extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         placarIA = new javax.swing.JLabel();
+        vencedor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Reversi");
@@ -350,14 +360,18 @@ public class Interface4x4 extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 12, Short.MAX_VALUE))
+                            .addComponent(vencedor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(157, 157, 157)
                         .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,8 +383,10 @@ public class Interface4x4 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(vencedor, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -452,55 +468,55 @@ public class Interface4x4 extends javax.swing.JFrame {
 
     private void botao8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao8ActionPerformed
         int n = 8, linha, coluna = 0;
-        linha = n / 8;
-        coluna = n % 8;
+        linha = n / QUATRO;
+        coluna = n % QUATRO;
         botaoPressionado = 8;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao8ActionPerformed
 
     private void botao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao1ActionPerformed
         int n = 1, linha, coluna = 0;
-        linha = n / 8;
-        coluna = n % 8;
+        linha = n / QUATRO;
+        coluna = n % QUATRO;
         botaoPressionado = 1;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao1ActionPerformed
 
     private void botao9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao9ActionPerformed
         int n = 9, linha, coluna = 0;
-        linha = n / 8;
-        coluna = n % 8;
+        linha = n / QUATRO;
+        coluna = n % QUATRO;
         botaoPressionado = 9;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao9ActionPerformed
 
     private void botao10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao10ActionPerformed
         int n = 10, linha, coluna = 0;
-        linha = n / 8;
-        coluna = n % 8;
+        linha = n / QUATRO;
+        coluna = n % QUATRO;
         botaoPressionado = 10;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao10ActionPerformed
 
     private void botao2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao2ActionPerformed
         int n = 2, linha, coluna = 0;
-        linha = n / 8;
-        coluna = n % 8;
+        linha = n / QUATRO;
+        coluna = n % QUATRO;
         botaoPressionado = 2;
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao2ActionPerformed
 
     private void botao3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao3ActionPerformed
         int n = 3, linha, coluna = 0;
-        linha = n / 8;
-        coluna = n % 8;
+        linha = n / QUATRO;
+        coluna = n % QUATRO;
         botaoPressionado = 3;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao3ActionPerformed
 
     private void botao11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao11ActionPerformed
         int n = 11, linha, coluna = 0;
-        linha = n / 8;
-        coluna = n % 8;
+        linha = n / QUATRO;
+        coluna = n % QUATRO;
         botaoPressionado = 11;
         System.out.println("Linha " + linha + " Coluna " + coluna);    }//GEN-LAST:event_botao11ActionPerformed
 
@@ -531,5 +547,6 @@ public class Interface4x4 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     public javax.swing.JLabel placarHumano;
     public javax.swing.JLabel placarIA;
+    public javax.swing.JLabel vencedor;
     // End of variables declaration//GEN-END:variables
 }

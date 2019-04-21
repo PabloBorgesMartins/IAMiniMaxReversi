@@ -6,6 +6,7 @@ package ia.minimax.reversi.model;
  * @author pablo
  */
 public class Posicao {
+    int N = 4;
     
     int x, y;
     public Posicao(int x, int y){
@@ -24,7 +25,7 @@ public class Posicao {
     
  
     public int transformaBotao(){
-        return (((this.x)*8) + this.y); 
+        return (((this.x)*N) + this.y); 
     }
 }
 
