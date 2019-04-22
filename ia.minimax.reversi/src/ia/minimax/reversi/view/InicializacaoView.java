@@ -2,9 +2,9 @@ package ia.minimax.reversi.view;
 
 import javax.swing.ImageIcon;
 
-public class InicializaicaoView extends javax.swing.JFrame {
+public class InicializacaoView extends javax.swing.JFrame {
 
-    public InicializaicaoView() {
+    public InicializacaoView() {
         initComponents();
     }
 
@@ -61,18 +61,21 @@ public class InicializaicaoView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inicianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicianteActionPerformed
+        /*
         System.out.println("Botão Iniciante clicado");
+        */
         //Interface chamaInterface = new Interface();
-        Interface4x4 chamaInterface = new Interface4x4();
-        chamaInterface.setVisible(true);
+        Interface4x4 interface4x4 = new Interface4x4();
+        interface4x4.setVisible(true);
+        interface4x4.dificuldadeSelecionada(10, interface4x4);
         dispose();
-        chamaInterface.dificuldadeSelecionada(10, chamaInterface);
+        
     }//GEN-LAST:event_inicianteActionPerformed
 
     private void moderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moderadoActionPerformed
         System.out.println("Botão Moderado clicado");
-        Interface4x4 chamaInterface = new Interface4x4();
-        //Interface chamaInterface = new Interface();
+        //Interface4x4 chamaInterface = new Interface4x4();
+        Interface chamaInterface = new Interface();
         chamaInterface.setVisible(true);
         dispose();
         chamaInterface.dificuldadeSelecionada(30, chamaInterface);
@@ -80,8 +83,8 @@ public class InicializaicaoView extends javax.swing.JFrame {
 
     private void experienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_experienteActionPerformed
         System.out.println("Botão Experiente clicado");
-        //Interface chamaInterface = new Interface();
-        Interface4x4 chamaInterface = new Interface4x4();
+        Interface chamaInterface = new Interface();
+        //Interface4x4 chamaInterface = new Interface4x4();
         chamaInterface.setVisible(true);
         dispose();
         chamaInterface.dificuldadeSelecionada(100, chamaInterface);
@@ -101,21 +104,20 @@ public class InicializaicaoView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InicializaicaoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicializacaoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InicializaicaoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicializacaoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InicializaicaoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicializacaoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InicializaicaoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicializacaoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new InicializaicaoView().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new InicializacaoView().setVisible(true);
         });
     }
 

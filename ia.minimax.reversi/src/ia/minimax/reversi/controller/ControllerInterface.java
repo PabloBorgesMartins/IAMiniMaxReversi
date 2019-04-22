@@ -238,6 +238,7 @@ public class ControllerInterface {
         tela.botao13.setEnabled(false);
         tela.botao14.setEnabled(false);
         tela.botao15.setEnabled(false);
+        /*
         tela.botao16.setEnabled(false);
         tela.botao17.setEnabled(false);
         tela.botao18.setEnabled(false);
@@ -286,6 +287,7 @@ public class ControllerInterface {
         tela.botao61.setEnabled(false);
         tela.botao62.setEnabled(false);
         tela.botao63.setEnabled(false);
+        */
         
     }
 
@@ -348,6 +350,7 @@ public class ControllerInterface {
                 case 15:
                     tela.botao15.setEnabled(true);
                     break;
+                /*
                 case 16:
                     tela.botao16.setEnabled(true);
                     break;
@@ -492,6 +495,7 @@ public class ControllerInterface {
                 case 63:
                     tela.botao63.setEnabled(true);
                     break;
+                */
             }
         }
 
@@ -634,7 +638,7 @@ public class ControllerInterface {
                         tela.botao15.setBackground(Color.WHITE);
                     }
                     break;
-                    /*
+                /*
                 case 16:
                     if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao16);
@@ -692,333 +696,334 @@ public class ControllerInterface {
                     }
                     break;
                 case 23:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao23);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao23);
                     }
                     break;
                 case 24:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao24);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao24);
                     }
                     break;
                 case 25:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao25);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao25);
                     }
                     break;
                 case 26:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao26);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao26);
                     }
                     break;
                 case 27:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao27);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao27);
                     }
                     break;
                 case 28:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao28);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao28);
                     }
                     break;
                 case 29:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao29);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao29);
                     }
                     break;
                 case 30:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao30);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao30);
                     }
                     break;
                 case 31:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao31);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao31);
                     }
                     break;
                 case 32:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao32);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao32);
                     }
                     break;
                 case 33:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao33);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao33);
                     }
                     break;
                 case 34:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao34);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao34);
                     }
                     break;
                 case 35:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao35);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao35);
                     }
                     break;
                 case 36:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao36);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao36);
                     }
                     break;
                 case 37:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao37);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao37);
                     }
                     break;
                 case 38:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao38);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao38);
                     }
                     break;
                 case 39:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao39);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao39);
                     }
                     break;
                 case 40:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao40);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao40);
                     }
                     break;
                 case 41:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao41);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao41);
                     }
                     break;
                 case 42:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao42);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao42);
                     }
                     break;
                 case 43:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao43);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao43);
                     }
                     break;
                 case 44:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao44);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao44);
                     }
                     break;
                 case 45:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao45);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao45);
                     }
                     break;
                 case 46:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao46);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao46);
                     }
                     break;
                 case 47:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao47);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao47);
                     }
                     break;
                 case 48:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao48);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao48);
                     }
                     break;
                 case 49:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao49);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao49);
                     }
                     break;
                 case 50:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao50);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao50);
                     }
                     break;
                 case 51:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao51);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao51);
                     }
                     break;
                 case 52:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao52);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao52);
                     }
                     break;
                 case 53:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao53);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao53);
                     }
                     break;
                 case 54:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao54);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao54);
                     }
                     break;
                 case 55:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao55);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao55);
                     }
                     break;
                 case 56:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao56);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao56);
                     }
                     break;
                 case 57:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao57);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao57);
                     }
                     break;
                 case 58:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao58);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao58);
                     }
                     break;
                 case 59:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao59);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao59);
                     }
                     break;
                 case 60:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao60);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao60);
                     }
                     break;
                 case 61:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao61);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao61);
                     }
                     break;
                 case 62:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao62);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao62);
                     }
                     break;
                 case 63:
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 1) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 1) {
                         tela.pintaBotaoJOGADOR(tela.botao63);
                     }
-                    if (estadoAtual.getCorPecaTabuleiro(j / 8, j % 8) == 2) {
+                    if (estadoAtual.getCorPecaTabuleiro(j / N, j % N) == 2) {
                         tela.pintaBotaoIA(tela.botao63);
                     }
-                    break;*/
+                    break;
+                */
             }
         }
     }
@@ -1027,6 +1032,7 @@ public class ControllerInterface {
     // Funcao que busca lugares onde possa ser feito uma jogada
      */
     public ArrayList<Posicao> procuraBotoesPossiveis(Estado estadoAtual, int jogadorAtual, int oponente) {
+        int N = 4;
         /*
         Este método deve retornar os botões possíveis para o humano jogar,
         portando não precisa receber jogadorAtual e oponente,

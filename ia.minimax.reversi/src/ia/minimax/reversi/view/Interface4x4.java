@@ -34,7 +34,8 @@ public class Interface4x4 extends javax.swing.JFrame {
         return botaoPressionado;
     }
 
-    public void dificuldadeSelecionada(int dificuldade, Interface4x4 i){
+    public void dificuldadeSelecionada (int dificuldade, Interface4x4 i){
+        
         ControllerEstado controleEstado = new ControllerEstado();
         Estado inicio = controleEstado.inicializarMatriz();
         int x = controleEstado.gerador(inicio, JOGADOR, IA);

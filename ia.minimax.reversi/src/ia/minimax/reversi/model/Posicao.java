@@ -17,13 +17,11 @@ public class Posicao {
     public int getPosicaoX(){
         return this.x;
     }
-    
-    
+ 
     public int getPosicaoY(){
         return this.y;
     }
-    
- 
+
     public int transformaBotao(){
         return (((this.x)*N) + this.y); 
     }
