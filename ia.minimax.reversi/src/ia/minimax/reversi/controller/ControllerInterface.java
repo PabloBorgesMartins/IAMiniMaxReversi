@@ -25,13 +25,12 @@ public class ControllerInterface {
     //Esse metodo recebe um estado
     public void jogar(Estado raiz, Interface4x4 tela, int dificuldade) {
         this.atual = raiz;
-        
-        
+ 
         Thread t = new Thread(() -> {
             // enquanto o jogo não terminar
             while (jogo) {
                 if (vez == JOGADOR) {
-                    System.out.println("Entrou na humano");
+                    //System.out.println("Entrou na humano");
                     // habilita os botoes que o jogador pode clicar
                     // habilitarBotoes(raiz, tela);              
                     // jogador faz a jogada
@@ -49,7 +48,7 @@ public class ControllerInterface {
                     }
  
                 } else {
-                    System.out.println("Entrou na IA");
+                    //System.out.println("Entrou na IA");
                     // desabilita todos os botoes para o jogador não poder jogar
                     //desabilitarBotoes(tela);  
                     
@@ -69,11 +68,8 @@ public class ControllerInterface {
             }
         });
         t.start();
-        System.out.println("JOGO ACABOU");
-    }
-    
-    
-    
+        //System.out.println("JOGO ACABOU");
+    } 
     
     public Estado miniMax(Estado atual){
         int melhorJogada = -1;

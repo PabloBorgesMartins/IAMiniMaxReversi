@@ -83,7 +83,8 @@ public class ControllerEstado {
         int posicao;
         
         if (estado.getNivel() == nivelDificuldade) {
-            return calcularMiniMax(estado);
+            estado.setMinimax(calcularMiniMax(estado));
+            return estado.getMinimax();
         }
         
         for (int i = 0; i < N; i++) {
@@ -104,7 +105,8 @@ public class ControllerEstado {
             estado.setFilhos(filhos);
         } else {
             // está em um estado final
-            return calcularMiniMax (estado);
+            estado.setMinimax(calcularMiniMax(estado));
+            return estado.getMinimax();
         }
         
         if (estado.isMax()){

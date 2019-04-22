@@ -37,8 +37,7 @@ public class Interface4x4 extends javax.swing.JFrame {
     public void dificuldadeSelecionada (int dificuldade, Interface4x4 i){
         
         ControllerEstado controleEstado = new ControllerEstado();
-        Estado inicio = controleEstado.inicializarMatriz();
-        int x = controleEstado.gerador(inicio, JOGADOR, IA);
+        Estado estadoInicial = controleEstado.inicializarMatriz();
         /*
         System.out.println("o valor de X é: " + x);
         System.out.println("O valor do minimax raiz é : " + inicio.getMinimax());
@@ -46,7 +45,7 @@ public class Interface4x4 extends javax.swing.JFrame {
             System.out.println("minimax filho("+j+") = " + inicio.getFilho(j).getMinimax());
         }*/
         ControllerInterface controleInterface = new ControllerInterface();
-        controleInterface.jogar(inicio, i, dificuldade);
+        controleInterface.jogar(estadoInicial, i, dificuldade);
     }
 
     @SuppressWarnings("unchecked")
