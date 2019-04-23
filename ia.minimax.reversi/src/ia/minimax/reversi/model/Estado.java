@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Queue;
 
 public class Estado {
-    int N = 4;
+    int N = 8;
     private int[][] tabuleiro = new int[N][N];
     private int minimax = 0;
     private int nivel;
@@ -141,29 +141,6 @@ public class Estado {
         this.max = max;
     }
     
-    @Override
-    public String toString(){
-        StringBuilder sb = new StringBuilder();
-        
-        for (int i = 0; i < tabuleiro.length; i++){
-            for (int j = 0; j < tabuleiro[0].length; j++){
-                sb.append(tabuleiro[i][j]).append(" ");
-            }
-            sb.append("\n");
-        }
-        return sb.toString();
-    }
-    
-    public String estadoEmStringDeUmaLinha(){
-        StringBuilder sb = new StringBuilder();
-        
-        for (int i = 0; i < tabuleiro.length; i++){
-            for (int j = 0; j < tabuleiro[0].length; j++){
-                sb.append(tabuleiro[i][j]);
-            }
-        }
-        return sb.toString();
-    }
 
     public int getPontuacao() {
         int jogador=0, maquina=0;
@@ -188,6 +165,17 @@ public class Estado {
 
     public Estado getFilho(int x) {
         return this.filhos.get(x);
+    }
+    
+    public boolean verificaFinal(){
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (this.tabuleiro[i][j] == 1 || this.tabuleiro[i][j]==2) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
     
 }

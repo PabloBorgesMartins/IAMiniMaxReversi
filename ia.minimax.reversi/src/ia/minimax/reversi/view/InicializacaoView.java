@@ -61,33 +61,26 @@ public class InicializacaoView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inicianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicianteActionPerformed
-        /*
-        System.out.println("Botão Iniciante clicado");
-        */
-        //Interface chamaInterface = new Interface();
-        Interface4x4 interface4x4 = new Interface4x4();
-        interface4x4.setVisible(true);
-        interface4x4.dificuldadeSelecionada(10, interface4x4);
+
+        Interface chamaInterface = new Interface();
+        chamaInterface.setVisible(true);
+        chamaInterface.dificuldadeSelecionada(2, chamaInterface);
         dispose();
         
     }//GEN-LAST:event_inicianteActionPerformed
 
     private void moderadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moderadoActionPerformed
-        System.out.println("Botão Moderado clicado");
-        //Interface4x4 chamaInterface = new Interface4x4();
         Interface chamaInterface = new Interface();
         chamaInterface.setVisible(true);
+        chamaInterface.dificuldadeSelecionada(4, chamaInterface);
         dispose();
-        chamaInterface.dificuldadeSelecionada(30, chamaInterface);
     }//GEN-LAST:event_moderadoActionPerformed
 
     private void experienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_experienteActionPerformed
-        System.out.println("Botão Experiente clicado");
         Interface chamaInterface = new Interface();
-        //Interface4x4 chamaInterface = new Interface4x4();
         chamaInterface.setVisible(true);
+        chamaInterface.dificuldadeSelecionada(6, chamaInterface);
         dispose();
-        chamaInterface.dificuldadeSelecionada(100, chamaInterface);
     }//GEN-LAST:event_experienteActionPerformed
 
     public static void main(String args[]) {

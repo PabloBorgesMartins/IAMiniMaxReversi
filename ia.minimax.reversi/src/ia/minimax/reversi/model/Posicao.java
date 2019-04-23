@@ -6,7 +6,7 @@ package ia.minimax.reversi.model;
  * @author pablo
  */
 public class Posicao {
-    int N = 4;
+    int N = 8;
     
     int x, y;
     public Posicao(int x, int y){

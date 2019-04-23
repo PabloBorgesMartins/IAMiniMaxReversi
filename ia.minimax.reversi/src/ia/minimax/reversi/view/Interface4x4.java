@@ -17,6 +17,7 @@ public class Interface4x4 extends javax.swing.JFrame {
     private static final Color IACOR = Color.WHITE;
     private static final Color COR_CASA_VAZIA = Color.GREEN;
     private static final int QUATRO = 4;
+    public Object lock = new Object();
     
     public Interface4x4() {
         initComponents();
@@ -399,6 +400,7 @@ public class Interface4x4 extends javax.swing.JFrame {
         linha = n / QUATRO;
         coluna = n % QUATRO;
         botaoPressionado = 7;
+        lock.notify();
         System.out.println("Linha " + linha + " Coluna " + coluna);
     }//GEN-LAST:event_botao7ActionPerformed
 

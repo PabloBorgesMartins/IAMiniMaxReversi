@@ -35,10 +35,9 @@ public class Interface extends javax.swing.JFrame {
 
     public void dificuldadeSelecionada(int dificuldade, Interface i){
         ControllerEstado controleEstado = new ControllerEstado();
-        Estado inicio = controleEstado.inicializarMatriz();
-        int x = controleEstado.gerador(inicio, JOGADOR, IA);
+        Estado estadoInicial = controleEstado.inicializarMatriz();
         ControllerInterface controleInterface = new ControllerInterface();
-        controleInterface.jogar(inicio, i, dificuldade);
+        controleInterface.jogar(estadoInicial, i, dificuldade);
     }
 
     @SuppressWarnings("unchecked")
