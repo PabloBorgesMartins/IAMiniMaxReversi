@@ -7,7 +7,10 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-
+/*
+ *
+ * @authores Pablo Borges e Marcos Paulo Mendes
+ */
 public class Interface extends javax.swing.JFrame {
     
     public static final int JOGADOR = 1; // Inteiro para identificar o jogador
@@ -34,10 +37,12 @@ public class Interface extends javax.swing.JFrame {
     }
 
     public void dificuldadeSelecionada(int dificuldade, Interface i){
+        
         ControllerEstado controleEstado = new ControllerEstado();
-        Estado estadoInicial = controleEstado.inicializarMatriz();
+        Estado raiz = controleEstado.inicializarMatriz();
         ControllerInterface controleInterface = new ControllerInterface();
-        controleInterface.jogar(estadoInicial, i, dificuldade);
+        controleInterface.jogar(raiz, i, dificuldade);
+        
     }
 
     @SuppressWarnings("unchecked")

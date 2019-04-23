@@ -2,6 +2,10 @@ package ia.minimax.reversi.view;
 
 import javax.swing.ImageIcon;
 
+/*
+ *
+ * @authores Pablo Borges e Henrique Veiga
+ */
 public class InicializacaoView extends javax.swing.JFrame {
 
     public InicializacaoView() {

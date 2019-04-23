@@ -3,7 +3,7 @@ package ia.minimax.reversi.model;
 
 /**
  *
- * @author pablo
+ * @author Pablo Borges
  */
 public class Posicao {
     int N = 8;

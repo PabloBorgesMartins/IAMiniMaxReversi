@@ -4,6 +4,10 @@ import ia.minimax.reversi.model.Estado;
 import ia.minimax.reversi.model.Posicao;
 import java.util.ArrayList;
 
+/*
+ *
+ * @authores Waislan Sanches e William Martins
+ */
 public class ControllerEstado {
     
     public static int CASA_VAZIA;
@@ -13,23 +17,24 @@ public class ControllerEstado {
     private static int[][] matrizEstado;
     
     public ControllerEstado () {
+        // 1 - preto; 2 - branco; 0 - vazio
         CASA_VAZIA = 0; // Representa uma casa vazia do tabuleiro do jogo
         JOGADOR = 1; // Inteiro para identificar o jogador
         IA = 2; // Inteiro para identificar a IA
         N = 8;
-        matrizEstado = new int[N][N]; // 1 - preto; 2 - branco; 0 - vazio
+        matrizEstado = new int[N][N];
     }
 
     public Estado inicializarMatriz() {
 
-        // setando todas as posições para vazio
+        // Setando todas as posições para vazio
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 matrizEstado[i][j] = 0; 
             }
         }
 
-        // setaNdo as posições do meio para branco e preto
+        // Setando as posições do meio para branco e preto
         matrizEstado[3][3] = IA;
         matrizEstado[3][4] = JOGADOR;
         matrizEstado[4][3] = JOGADOR;
@@ -40,29 +45,36 @@ public class ControllerEstado {
         return raiz;
     }
 
-       
+    /*
+    Este método gera a árvore de possibilidades em profundidade e recursivamente a partir do estado atual
+    A árvore é gerada até o nível de profundidade correspondente ao nível de dificuldade do jogo
+    */ 
     public int gerarArvore(Estado estado, int nivelDificuldade, int jogadorAtual, int oponente){
+        
         ArrayList<Estado> filhos = new ArrayList<>();
         
         if (estado.getNivel() == nivelDificuldade) {
+            // Chegou até o último nível possível
             estado.setMinimax(calcularMiniMax(estado));
             return estado.getMinimax();
         }
-        
-        
+
         ArrayList<Posicao> posicoes = new ArrayList<>();
         ControllerInterface controle = new ControllerInterface();
-        posicoes = controle.procuraBotoesPossiveis(estado, jogadorAtual, oponente);
+        
+        posicoes = controle.procuraBotoesPossiveis (estado, jogadorAtual, oponente);
+        
         for (int i = 0; i < posicoes.size(); i++) {
+            // Para cada posição possível cria um novo estado e coloca na lista de estados filhos do estado atual
             Estado aux = new Estado(estado.getTabuleiro(), estado.getNivel()+1, !estado.isMin(), !estado.isMax());
-            aux.atualizaTabuleiro(posicoes.get(i).transformaBotao(), jogadorAtual, oponente);
+            aux.atualizaTabuleiro (posicoes.get(i).transformaBotao(), jogadorAtual, oponente);
             filhos.add(aux);
         }
         
         if (!filhos.isEmpty()) {
             estado.setFilhos(filhos);
         } else {
-            // está em um estado final
+            // Não tem mais posições jogáveis, chegou na folha da árvore
             estado.setMinimax(calcularMiniMax(estado));
             return estado.getMinimax();
         }
@@ -74,7 +86,9 @@ public class ControllerEstado {
         }
         
         for (Estado filho : filhos) {
-            gerarArvore(filho, nivelDificuldade, oponente, jogadorAtual);
+            // Gera a árvore para cada estado filho do estado atual
+
+            gerarArvore (filho, nivelDificuldade, oponente, jogadorAtual);
             if (estado.isMax()){
                 if (filho.getMinimax() > estado.getMinimax()){
                     estado.setMinimax(filho.getMinimax());
@@ -87,25 +101,32 @@ public class ControllerEstado {
         }
         
         return estado.getMinimax();
+        
     }
     
+    /* 
+    Este método cálcula o valor de MiniMax para estado recebido como parâmetro
+    O valor é dado pela diferença entre as quantidades peças da IA e do humano
+    */
     public int calcularMiniMax (Estado estado) {
-        int pecasPretas = 0; // peças da IA
-        int pecasBrancas = 0;
+        
+        int pecasPretas = 0; // Peças da IA
+        int pecasBrancas = 0; // Peças do humano
         
         for (int i = 0; i < N; i++){
             for (int j = 0; j < N; j++){
                 if (estado.getTabuleiro()[i][j] == 1){
-                    // se a peça for preta
+                    // Se a peça for preta
                     pecasPretas++;
                 } else if (estado.getTabuleiro()[i][j] == 2){
-                    // se a peça for branca
+                    // Se a peça for branca
                     pecasBrancas++;
                 }
             }
         }
         
         return pecasBrancas - pecasPretas;
+        
     }
 
 }

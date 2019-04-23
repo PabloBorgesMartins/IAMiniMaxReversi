@@ -1,8 +1,11 @@
 package ia.minimax.reversi.model;
 
 import java.util.ArrayList;
-import java.util.Queue;
 
+/*
+ *
+ * @authors Waislan Sanches e Pablo Borges
+ */
 public class Estado {
     int N = 8;
     private int[][] tabuleiro = new int[N][N];
@@ -167,15 +170,19 @@ public class Estado {
         return this.filhos.get(x);
     }
     
+    // Este método verifica se o jogo acabou e retorna true caso tenha acabado
     public boolean verificaFinal(){
+        
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (this.tabuleiro[i][j] == 1 || this.tabuleiro[i][j]==2) {
+                if (this.tabuleiro[i][j] == 1 || this.tabuleiro[i][j] == 2) {
                     return false;
                 }
             }
         }
+        
         return true;
+        
     }
     
 }
